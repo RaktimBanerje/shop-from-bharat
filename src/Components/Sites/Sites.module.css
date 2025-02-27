@@ -1,0 +1,170 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background: #f3f4f6;
+}
+
+
+:global(p),
+:global(span) {
+  color: var(--theme);
+}
+
+:global(h2) {
+  color: var(--text);
+}
+
+.sites {
+  /* background-color: var(--background); */
+  width: 100vw;
+  /* height: 70vh; */
+  margin-top: 2rem;
+}
+
+.sites_container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  /* background-color: pink; */
+}
+
+.sites_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sites_header .heading h2 {
+  width: 40vw;
+  text-transform: uppercase;
+}
+
+.sites_right {
+  display: flex;
+  gap: 4rem;
+}
+
+.sites_viewall {
+  display: flex;
+  gap: 0.5rem;
+  width: 15vh;
+  align-items: center;
+  cursor: pointer;
+  color: #000;
+}
+
+.arrowIcon {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem; /* Adjust based on your design */
+  width: 0.8rem; /* Adjust size based on your design */
+  height: 0.8rem; /* Adjust size based on your design */
+}
+
+.filterIcon {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  padding-left: 35px;
+  outline: none;
+  padding: 10px;
+  width: 20rem;
+  border: 1px solid #f3f4f6;
+  text-indent: 1.6rem;
+}
+
+.sites_items {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site_item {
+  background-color: #fff;
+  width: 22.5%;
+  height: 180px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  flex: 0 0 auto; 
+}
+
+.site_item:hover {
+  transform: scale(1.1);
+}
+
+.site_item_image {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--theme);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.site_item_image img {
+  max-height: 120px;
+  width: 100%;
+  height: 80%;
+  object-fit: cover; 
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .sites {
+    height: 90%;
+    margin-top: 1rem;
+  }
+
+  .sites_container {
+    width: 95%;
+  }
+
+  .sites_header {
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sites_header h2 {
+    margin: auto;
+  }
+
+  .sites_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .site_item {
+    background-color: #fff;
+    width: 80vw;
+    height: 15vh;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: auto;
+  }
+}
+

@@ -1,0 +1,110 @@
+.fakeclass {
+  color: "red";
+}
+
+
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background: #f9f3ee;
+}
+
+.accordionMain {
+  background: #f9f3ee;
+  min-height: 70vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10rem;
+}
+
+.accordion_heading {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+}
+
+.accordion {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto;
+  min-height: 40vh; /* Add this to set a minimum height */
+}
+
+.accordion_item {
+  width: 100%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.accordion_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #f9fafb;
+}
+
+.accordion_mainTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.accordion_title:hover {
+  background-color: #f9fafb;
+}
+
+.accordion_title,
+.accordion_content {
+  padding: 1rem;
+}
+
+.accordion_content {
+  background-color: #fff;
+  font-size: 0.8rem;
+  transition: 0.3s ease-out;
+  line-height: 1.5rem;
+}
+
+.accordion_item:last-child {
+    margin-bottom: 2rem; /* Adjust this value as needed */
+  }
+
+  .accordion_three {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .accordion_points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+@media screen and (max-width: 480px) {
+
+  .accordionMain {
+    height: 90%;
+    margin-top: 3rem;
+  }
+
+  .accordion {
+    width: 90%;
+  }
+
+  .accordion_heading {
+    height: 20vh;
+  }
+
+  .accordion_heading h1 {
+    font-size: 1.5rem;
+  }
+}

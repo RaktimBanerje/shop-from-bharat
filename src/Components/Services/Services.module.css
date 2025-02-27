@@ -1,0 +1,119 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background: #f3f4f6;
+}
+
+
+:global(h1) {
+  color: var(--text);
+}
+
+.services {
+  /* background-color: var(--background); */
+  width: 100vw;
+  /* height: 80vh; */
+  /* background-color: pink; */
+  margin: 3rem 0;
+}
+
+.services_container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.services_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.services_heading h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.services_paragraph {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+}
+
+.services_paragraph p {
+  color: var(--text);
+  text-align: center;
+}
+
+.services_info {
+  display: flex;
+  gap: 4vw;
+}
+
+.service_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.image_style {
+  width: 25vw;
+  margin-left: 1rem;
+}
+
+.image_style_two {
+  width: 16vw;
+  margin-left: 1rem;
+}
+
+.service_desc {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  .services {
+    margin-top: 1rem;
+    height: 90%;
+  }
+
+  .services_heading h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .services_paragraph {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    /* text-align: center; */
+  }
+
+  .services_paragraph p {
+    color: var(--text);
+    text-align: center;
+  }
+
+  .services_info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .service_info img {
+    width: 45vw;
+    margin-left: 1rem;
+  }
+
+  .service_desc {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}

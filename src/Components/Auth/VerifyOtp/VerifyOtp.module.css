@@ -1,0 +1,179 @@
+:root {
+    --heading: #393a56;
+    --text: #464646;
+    --theme: #fe5402;
+    --bg: #fff;
+  }
+  
+  
+  /* Header */
+  .login {
+    background-color: var(--bg);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow-y: hidden;
+  }
+  
+  .login_left {
+      background: linear-gradient(-40deg, #e55812 40%, #FFFFFF 140%);
+      width: 45vw;
+      height: 100vh;
+  }
+  
+  .login_left_header {
+      height: 25vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .login_left_header h1 {
+      color: #fff;
+  }
+  
+  .login_right {
+      margin: auto;
+  }
+  .brand_logo img {
+    height: 120px;
+    margin-top: -20px;
+    
+  }
+  .login_form {
+      width: 35vw;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+  }
+  
+  .textField {
+      width: 65%;
+  }
+  
+  .button {
+      width: 65%;
+  }
+  
+  .google_button {
+      width: 65%;
+  }
+  
+  .button button {
+      width: 100%;
+      background-color: var(--theme);
+      color: #fff;
+      border: none;
+      height: 4vh;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  
+  .google_button button {
+      width: 100%;
+      background-color: var(--bg);
+      color: var(--theme);
+      border: 0.5px solid var(--theme);
+      height: 4vh;
+      padding: 1.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+  }
+  
+  .google_button button img {
+      margin-left: 1rem;
+      width: 1rem;
+  }
+  
+  .line {
+      display: flex;
+      align-items: center;
+      width: 65%;
+  }
+  
+  .border_left, .border_right {
+      border: 0.2px solid #e5e7eb;
+      width: 100%;
+  }
+  
+  .line_or {
+      font-size: small;
+      padding: 0 10px;
+  }
+  
+  .ellipses {
+      position: relative;
+      height: 100%;
+  }
+  
+  .ellipses_main {
+      /* background-color: pink; */
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      position: absolute; /* or fixed */
+      bottom: 25%;
+  }
+  
+  .ellipses_main img {
+      opacity: 0.5;   
+  }
+  
+  .ellipses_small {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      position: absolute; /* or fixed */
+      bottom: 33%;
+      right: 12%;
+  }
+  
+  .ellipses_small {
+      opacity: 0.7;
+  }
+
+  .countdown_text {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .countdown_text > p {
+    font-size: 13px;
+    font-weight: 400;
+    color: #2d1d35;
+  }
+
+  .countdown_text > button {
+    background-color: #fff;
+    border: none;
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .change_email_option {
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+
+  .change_email_option:hover {
+    text-decoration: underline;
+  }
+  
+  
+  

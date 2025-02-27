@@ -1,0 +1,52 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background: #f9f3ee;
+}
+
+  
+  .partners {
+    background: #fff;
+    min-height: 20vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 0;
+  }
+
+  .partners_container {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+    align-items: center;
+  }
+
+  .partners_heading {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 54px;
+    color: #464646;
+    text-transform: uppercase;
+  }
+
+  .partners_list {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 56px;
+  }
+
+  .partner_box {
+    /* width: 270px; */
+    width: 250px;
+    height: 120px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 2px 0px #00000040;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

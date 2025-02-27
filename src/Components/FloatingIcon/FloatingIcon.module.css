@@ -1,0 +1,80 @@
+.floating_div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensures it is above other content */
+  }
+  
+  .floating_button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    cursor: pointer;
+  }
+  .floating_button:hover{
+    opacity: 0.9;
+  }
+
+  .floating_button img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+  .button_container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    margin-top: 10px; /* Space between the floating button and buttons */
+    height: auto;
+    width: 200px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .action_button {
+    background-color: #28a745; /* Change to your preferred color */
+    /* color: white; */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0; /* Space between buttons */
+    cursor: pointer;
+  }
+  
+  .place_order_btn_popup {
+    width:100%;
+    height: 6vh;
+    background-color: var(--theme);
+    font-weight: 400;
+    font-size: medium;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .place_order_btn_text {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 18px;
+    text-align: center;
+    color: #fff;
+  }
+
+
+  .directBtn {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }

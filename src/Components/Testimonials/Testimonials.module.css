@@ -1,0 +1,137 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background-testimonials: #f9f3ee;
+}
+
+
+.testimonials {
+  background: var(--background-testimonials);
+  min-height: 40vh;
+  width: 100vw;
+  padding-bottom: 5rem;
+}
+
+.testimonials_container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.testimonials_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4rem;
+}
+
+.header_left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header_heading {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 54px;
+  color: #133240;
+}
+
+.header_info {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 33px;
+}
+
+.header_right {
+  display: flex;
+  gap: 8px;
+}
+
+.header_right button {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border-radius: 6px;
+  border: 1px solid rgba(231, 234, 236, 1);
+  padding: 6px 12px;
+  width: fit-content;
+  height: 36px;
+  background-color: var(--background-testimonials);
+  cursor: pointer;
+}
+
+.testimonials_body {
+  display: flex;
+  gap: 19px;
+}
+
+.user_testimonial {
+  width: 90% !important;
+  height: 350px;
+  border-radius: 8px;
+  border: 1px solid rgba(231, 234, 236, 1);
+  gap: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.user_testimonial_header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.user_testimonial_left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user_testimonial_left img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+
+.user_name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 33px;
+  color: rgba(19, 50, 64, 1);
+}
+
+.user_testimonial_desc {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  color: rgba(19, 50, 64, 1);
+}
+
+.user_testimonial_right{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.user_initial{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #f9f3ee;
+  background-color: #fe5402;
+  border: 1px solid #fe5402;
+}
+.user_initial h2{
+color: white;
+}

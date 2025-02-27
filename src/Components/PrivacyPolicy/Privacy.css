@@ -1,0 +1,73 @@
+.privacy-policy {
+  max-width: 900px; /* Slightly wider for better readability */
+  margin: 40px auto; /* Adding vertical space */
+  padding: 20px; /* Add padding to prevent text from touching edges */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.8; /* Increase line height for better readability */
+  color: #333;
+  background-color: #f9f9f9; /* Light background to make text pop */
+  border-radius: 8px; /* Rounded corners for modern look */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+}
+
+.privacy-policy h1 {
+  text-align: center;
+  font-size: 2.8em; /* Larger font size */
+  color: #2c3e50; /* Darker and more modern shade */
+  margin-bottom: 30px;
+}
+
+.privacy-policy h2 {
+  font-size: 2em; /* Slightly larger for emphasis */
+  margin-top: 30px;
+  color: #34495e; /* A softer, professional color */
+  border-bottom: 2px solid #ecf0f1; /* Underline effect for section headers */
+  padding-bottom: 10px;
+}
+
+.privacy-policy h3 {
+  font-size: 1.6em;
+  margin-top: 25px;
+  color: #7f8c8d; /* A lighter color to make H3 subtler */
+}
+
+.privacy-policy p {
+  font-size: 1.1em; /* Increase font size for better legibility */
+  color: #555; /* Softer color for text */
+  margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.privacy-policy ul {
+  list-style: disc inside;
+  padding-left: 20px;
+}
+
+.privacy-policy ul li {
+  margin: 12px 0;
+  font-size: 1.1em; /* Make the list items slightly bigger */
+  color: #444;
+}
+
+.privacy-policy strong {
+  color: #2c3e50; /* Bolder color for important text */
+}
+
+@media (max-width: 768px) {
+  .privacy-policy {
+    padding: 15px;
+    max-width: 100%; /* Make it responsive for mobile */
+  }
+
+  .privacy-policy h1 {
+    font-size: 2em; /* Adjust sizes for smaller screens */
+  }
+
+  .privacy-policy h2 {
+    font-size: 1.8em;
+  }
+
+  .privacy-policy p, 
+  .privacy-policy ul li {
+    font-size: 1em;
+  }
+}

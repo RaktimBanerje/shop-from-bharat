@@ -1,0 +1,157 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background-account: #fff8f5;
+}
+
+.modal_container{
+  height: 100vh;
+  width: 100vw;
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--background-account);
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.addresses {
+  background-color: var(--background-account);
+  width: 100vw;
+  /* height: 100vh; */
+}
+
+.addresses_container {
+  width: 80%;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* background-color: pink; */
+}
+
+.addresses_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.addresses_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header_left p {
+  color: #475467CC;
+}
+
+.header_right button {
+  background-color: var(--theme);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.addresses_list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.address_info {
+  display: flex;
+  gap: 4rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address_info:not(:last-child) {
+    border-bottom: 1px solid #eae8e8; /* Apply the desired border style */
+  }
+
+
+.select_address {
+  display: flex;
+  gap: 1rem;
+  width: 20%;
+  align-items: center;
+}
+
+:global(input[type='radio']) {
+    accent-color: #007e58;
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.address_type p {
+  color: #464646;
+}
+
+.address_status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.address_status span {
+  color: #007e58;
+}
+
+.address_circle {
+  background-color: #007e58;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  box-shadow: rgba(39, 117, 27, 0.35) 0px 5px 15px;
+}
+
+.user_address {
+  display: flex;
+  gap: 1rem;
+  width: 35%;
+}
+
+.user_address span {
+  color: #464646;
+}
+
+.address_actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.address_actions img {
+  cursor: pointer;
+}

@@ -1,0 +1,102 @@
+:root {
+    --heading: #393a56;
+    --text: #464646;
+    --theme: #fe5402;
+    --background-address: #fff8f5;
+  }
+  
+
+.address {
+  background-color: var(--background-address);
+  width: 100vw;
+  height: 100vh;
+}
+
+.address_container {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.address_form {
+    width: 50vw;
+    height: 80vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form_heading {
+    text-align: center;
+}
+
+
+.form_name_phone, .form_zip_city, .district_state {
+    display: flex;
+    gap: 2rem;
+}
+
+.input_field {
+    width: 50%;
+}
+
+.address_button {
+    width: 100%;
+}
+
+.address_button button {
+    width: 100%;
+    background-color: var(--theme);
+    color: #fff;
+    border: none;
+    height: 4vh;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+
+    .address_container {
+        width: 90vw;
+    }
+
+    .address_form {
+        width: 90vw;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .form_inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form_name_phone, .form_zip_city, .district_state {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .input_field {
+        width: 100%;
+    }
+}

@@ -1,0 +1,89 @@
+:root {
+  --heading: #393a56;
+  --text: #464646;
+  --theme: #fe5402;
+  --background-account: #fff8f5;
+}
+
+.account {
+  background-color: var(--background-account);
+  width: 100vw;
+  /* height: 100vh; */
+}
+
+.account_container {
+  width: 80%;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* background-color: pink; */
+}
+
+.account_info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.account_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header_left p {
+  color: #475467CC;
+}
+
+.header_right button {
+  background-color: var(--theme);
+  color: #fff;
+  border-radius: 8px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.account_section {
+  background-color: #fff;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.account_photo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.profile {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.account_contact {
+  display: flex;
+  gap: 1rem;
+}
+
+.name_field {
+  width: 100%;
+}
+
+.input_field {
+  width: 50% !important;
+}
