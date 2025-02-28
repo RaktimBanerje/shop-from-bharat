@@ -81,6 +81,11 @@ const Navbar = ({ token }) => {
             </Link>
           </li>
           <li className={styles.about_us}>
+            <Link href="/service" className={styles.label}>
+              Service
+            </Link>
+          </li>
+          <li className={styles.about_us}>
             <Link href="/faq" className={styles.label}>
               FAQ
             </Link>
