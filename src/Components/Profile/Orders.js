@@ -71,13 +71,12 @@ const Orders = () => {
               </div>
             </div>
           </div>
-
+    
           <div className={styles.orders_list}>
             {orders.map((order) => (
               <div className={styles.order_info} key={order._id}>
                 <div className={styles.info_header}>
                   <div className={styles.info_header_left}>
-                    {/* <Image src={AmazonaSvg} alt="Amazona Store" width={50} height={50} /> */}
                     <div className={styles.info_header_left_info}>
                       <div className={styles.info_header_left_top}>
                         <span className={styles.total_price}>
@@ -93,13 +92,9 @@ const Orders = () => {
                     <div className={styles.total_items}>
                       {order.products.length} items
                     </div>
-                    {/* <div className={styles.items_images}>
-                      {order.products.slice(0, 3).map((product, index) => (
-                        <Image key={index} src={itemOneSvg} alt={`item ${index + 1}`} width={50} height={50} />
-                      ))}
-                    </div> */}
                   </div>
                 </div>
+    
                 <div className={styles.order_details}>
                   <div className={styles.order_details_left}>
                     <div className={styles.order_number_container}>
@@ -110,16 +105,16 @@ const Orders = () => {
                         {order.order_number}
                       </div>
                     </div>
-
+    
                     <div className={styles.order_receiver_container}>
                       <div className={styles.order_receiver_heading}>
                         Receiver
                       </div>
                       <div className={styles.order_receiver}>
-                        {order.address.name}
+                        {order.address?.name || 'N/A'} {/* Safe access with optional chaining */}
                       </div>
                     </div>
-
+    
                     <div className={styles.order_eta_container}>
                       <div className={styles.order_eta_heading}>
                         Estimated delivery time
@@ -129,26 +124,32 @@ const Orders = () => {
                       </div>
                     </div>
                   </div>
-
+    
                   <div className={styles.order_details_right}>
                     <div className={styles.order_service_container}>
                       <div className={styles.order_service_heading}>
                         Delivery Service
                       </div>
                       <div className={styles.order_service}>
-                        {/* <Image src={DHLSvg} alt="DHL" width={50} height={50} /> */}
                         <span>--</span>
                       </div>
                     </div>
-
+    
                     <div className={styles.order_courier_container}>
                       <div className={styles.order_courier_heading}>
                         Courier delivery to
                       </div>
                       <div className={styles.order_courier}>
-                        <p>{order.address.address},</p>
-                        <p>{order.address.city}, {order.address.zip_code}</p>
-                        <p>{order.address.country}</p>
+                        {/* Use optional chaining to safely access address properties */}
+                        {order.address ? (
+                          <>
+                            <p>{order.address.address},</p>
+                            <p>{order.address.city}, {order.address.zip_code}</p>
+                            <p>{order.address.country}</p>
+                          </>
+                        ) : (
+                          <p>Address not available</p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -159,6 +160,7 @@ const Orders = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 

@@ -1,14 +1,14 @@
-:root {
+/* :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
   --background: #f3f4f6;
-}
+} */
 
 
-:global(h1) {
+/* :global(h1) {
   color: var(--text);
-}
+} */
 
 .services {
   /* background-color: var(--background); */

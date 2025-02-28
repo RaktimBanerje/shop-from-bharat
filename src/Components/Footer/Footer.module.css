@@ -1,16 +1,16 @@
 .fakeclass {
   color: "red";
 }
-
+/* 
 :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
-}
+} */
 
-:global(ul) {
+/* :global(ul) {
   list-style: none;
-}
+} */
 
 .footer {
   background-color: #464646;
@@ -38,16 +38,15 @@
 
 }
 
-:global(h3) {
+/* :global(h3) {
     color: #fcfcfc;
     font-weight: 400;
-    /* min-width: 150px; */
 }
 
 :global(li) {
   color: #fcfcfc;
   font-weight: 300;
-}
+} */
 
 .footer a {
   color: #fcfcfc;

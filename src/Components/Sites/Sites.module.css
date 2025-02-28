@@ -1,11 +1,11 @@
-:root {
+/* :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
   --background: #f3f4f6;
-}
+} */
 
-
+/* 
 :global(p),
 :global(span) {
   color: var(--theme);
@@ -13,7 +13,7 @@
 
 :global(h2) {
   color: var(--text);
-}
+} */
 
 .sites {
   /* background-color: var(--background); */

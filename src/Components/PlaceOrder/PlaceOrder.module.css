@@ -1,11 +1,11 @@
 /* Modal.module.css */
 
-:root {
+/* :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
   --background-bulk: #fff8f5;
-}
+} */
 
 .modal_overlay {
     position: fixed;
@@ -394,11 +394,11 @@
   align-items: center;
 }
 
-:global(input[type='radio']) {
+/* :global(input[type='radio']) {
     accent-color: #007e58;
     width: 1.2rem;
     height: 1.2rem;
-}
+} */
 
 .address_type p {
   color: #464646;

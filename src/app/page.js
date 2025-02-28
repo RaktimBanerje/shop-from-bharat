@@ -98,7 +98,7 @@ export default function HomePage() {
         </div>
 
 
-        {/* <Categories ref={wycoRef} /> */}
+        <Categories ref={wycoRef} />
         <Sites />
         <Services />
         <Testimonials />

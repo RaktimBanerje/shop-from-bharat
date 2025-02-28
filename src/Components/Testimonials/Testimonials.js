@@ -55,20 +55,24 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const [zoomLevel, setZoomLevel] = useState(
-    Math.round(window.devicePixelRatio * 100)
-  );
-
-  const updateZoomLevel = () => {
-    setZoomLevel(Math.round(window.devicePixelRatio * 100));
-  };
+  const [zoomLevel, setZoomLevel] = useState(100); // Default to 100 (fallback for SSR)
+  const [isClient, setIsClient] = useState(false); // Track if the code is running on the client side
 
   useEffect(() => {
-    window.addEventListener("resize", updateZoomLevel);
+    if (typeof window !== "undefined") {
+      setIsClient(true);
+      const updateZoomLevel = () => {
+        setZoomLevel(Math.round(window.devicePixelRatio * 100));
+      };
 
-    return () => {
-      window.removeEventListener("resize", updateZoomLevel);
-    };
+      updateZoomLevel(); // Set the initial zoom level
+
+      window.addEventListener("resize", updateZoomLevel);
+
+      return () => {
+        window.removeEventListener("resize", updateZoomLevel);
+      };
+    }
   }, []);
 
   const settings = {
@@ -105,6 +109,11 @@ const Testimonials = () => {
   const handlePrev = () => {
     sliderRef.current.slickPrev();
   };
+
+  // Render only after the component has mounted on the client
+  if (!isClient) {
+    return null; // You can also return a loading spinner or placeholder here
+  }
 
   return (
     <div className={styles.testimonials}>

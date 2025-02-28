@@ -1,9 +1,9 @@
-:root {
+/* :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
   --background: #f3f4f6;
-}
+} */
 
 /* Categories.module.css */
 .categories-section {
@@ -89,13 +89,11 @@
 
 /* Categories.module.css */
 /* Using ::global to make p and h2 global styles */
-:global(p) {
-  color: var(--theme);
-}
 
-:global(h2) {
+
+/* :global(h2) {
   color: var(--text);
-}
+} */
 
 .categories {
   width: 100vw;

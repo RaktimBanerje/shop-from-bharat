@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import styles from "./VerifyOtp.module.css";
 import { TextField } from "@mui/material";
 import styled from "styled-components";
-import { useRouter } from "next/router";  // Use Next.js's useRouter for navigation
 import toast from "react-hot-toast";
 import apiServiceHandler from "../../../service/apiService";
 import { MuiOtpInput } from "mui-one-time-password-input";
@@ -27,19 +26,20 @@ const VerifyOtp = () => {
   const [jwtSecret, setJwtSecret] = useState("");
   const [seconds, setSeconds] = useState(10);
 
-  const router = useRouter(); // Use Next.js router for navigation
-
-  // Fetch email and jwtSecret from query parameters
+  // Fetch email and jwtSecret from URL search parameters
   useEffect(() => {
-    const { email, jwtSecret } = router.query;
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+    const jwtSecret = params.get("jwtSecret");
+
     if (email && jwtSecret) {
       setEmail(email);
       setJwtSecret(jwtSecret);
     } else {
       toast.error("Missing email or JWT secret.");
-      router.push("/"); // Redirect to home page if parameters are missing
+      window.location.href = "/"; // Redirect to home page if parameters are missing
     }
-  }, [router.query]);
+  }, []);
 
   const handleOtpChange = (newValue) => {
     setOtp(newValue);
@@ -59,7 +59,7 @@ const VerifyOtp = () => {
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("email", email);
         setTimeout(() => {
-          router.push("/address"); // Use router.push for navigation in Next.js
+          window.location.href = "/address"; // Redirect to address page
         }, 2000); // Navigate after 2 seconds
       } else {
         toast.error(response.message); // OTP verification failed
@@ -154,7 +154,7 @@ const VerifyOtp = () => {
           <div className={styles.dont_have_account}>
             Want to change your email?{" "}
             <span
-              onClick={() => router.back()} // Use router.back() for going back to previous page
+              onClick={() => window.history.back()} // Use window.history.back() for going back to previous page
               className={styles.change_email_option}
             >
               Click here
