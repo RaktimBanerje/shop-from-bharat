@@ -149,13 +149,6 @@ const LoginStep = ({ setCurrentStep, onClose }) => {
                 {isLoading ? "Logging in..." : "Continue"}
               </button>
             </div>
-
-            <div className={styles.forgot_password}>
-              FORGOT YOUR PASSWORD?
-              <Link href="/forgot-password">
-                <a>Click here</a> {/* Wrap the "Click here" text with <a> */}
-              </Link>
-            </div>
           </div>
           <div className={styles.dont_have_account}>
             Don't have an Account?

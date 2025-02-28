@@ -194,13 +194,6 @@ const Login = () => {
             <div className={styles.button}>
               <button onClick={handleSubmit}>LOGIN</button>
             </div>
-
-            <div className={styles.forgot_password}>
-              FORGOT YOUR PASSWORD?
-              <Link href="/forgot-password"> {/* Use Next.js Link component */}
-                Click here
-              </Link>
-            </div>
           </div>
           <div className={styles.dont_have_account}>
             Don't have an Account?
