@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./About.module.css";
 import Image from 'next/image';  // Importing Image from next/image
 import AllItemsSvg from "../../assets/allSites.svg";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const About = () => {
   return (

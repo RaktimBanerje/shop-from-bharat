@@ -79,7 +79,38 @@ const Platform = () => {
       <div className={styles.platform_container}>
         <Navbar token={token} />
         <div className={styles.line}></div>
+
+        <section
+          className="bg-dark text-white text-center py-5 d-flex align-items-center fullwidth"
+          style={{
+            backgroundImage: "url('https://via.placeholder.com/1920x600')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            marginLeft: -120
+          }}
+        >
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="display-4 fw-bold">Welcome to Our Inner Page</h1>
+                <p className="lead text-light">Explore the best of our content, products, and services.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className={styles.platforms}>
+          
+          <div class="row d-flex justify-content-center px-0">
+            <div class="col-md-9">
+                <h2 class="text-center text-dark">Bring Indian Products Home With The Most Trusted Online Shipping Store Globally                </h2>
+                
+                <p class="text-center text-dark">Looking for international shipping online stores that simplify delivery for you? We, at Shop From Bharat have made it easier for you to bring home products made in India. Whether you're shopping on Amazon India online shopping or exploring the best deals on Flipkart online shopping, we make delivery seamless.</p>
+                
+                <p class="text-center text-dark">Get your favorite products from international shopping sites India delivered to your doorstep without any damage. With our reliable international shipping online stores, you can now enjoy seamless shipping of Indian goods worldwide, from fashion to electronics, home decor, and more. Experience hassle-free shopping and quick delivery with us, wherever you are!</p>
+            </div>
+          </div>
+
           <div className={styles.platform__header}>
             <div className={styles.platforms_info}>
               <h2>Shopping sites?</h2>

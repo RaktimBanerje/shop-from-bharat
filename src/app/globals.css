@@ -270,6 +270,9 @@ h2) {
   --background-works: #fff8f5;
 } */
 
+body {
+  overflow-x: hidden;
+}
 
 :root {
   --heading: #393a56;
@@ -326,3 +329,6 @@ input[type='radio'] {
 h1 {
   color: var(--text);
 }
+
+
+.fullwidth{position:relative; margin-left:50%;  width:100vw; max-width:100vw; clear:both; height: 300px; top: -32px;}

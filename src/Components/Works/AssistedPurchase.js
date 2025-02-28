@@ -23,7 +23,7 @@ const steps = [
     step: 3,
     title: "3. Provide Your Address and Make the Payment.",
     description:
-      "Once the product links are shared, fill out your delivery address and proceed with the payment. After the payment is completed, our team will place the order on your behalf.",
+      "Once the product links are shared, fill out your delivery address and proceed with the payment. After the payment is completed, our online shopping assistant team will place the order on your behalf.",
     videoSrc: "https://www.youtube.com/embed/0Oacr8VrnNk?si=YzCrNf7pHR2_Qx5Q",
   },
   {

@@ -67,9 +67,9 @@ const Navbar = ({ token }) => {
               Shopping Sites
             </Link>
           </li>
-          <li onClick={toggleModal} className={styles.bulk_order}>
+          {/* <li onClick={toggleModal} className={styles.bulk_order}>
             <span>Bulk Order</span>
-          </li>
+          </li> */}
           <li className={styles.about_us}>
             <Link href="/about-us" className={styles.label}>
               About Us

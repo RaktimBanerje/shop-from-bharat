@@ -1,59 +1,42 @@
-/* 
-:root {
+.fakeclass {
+  color: "red";
+}
+
+/* :root {
   --heading: #393a56;
   --text: #464646;
   --theme: #fe5402;
-  --background-about: #f9f3ee;
-} */
+  --background-aboutUs: #f9f3ee;
+}
 
-
-  .about {
-    background-color: var(--background-about);
+   */
+  .aboutUs {
+    background-color: var(--background-aboutUs);
     width: 100vw;
     height: fit-content;
+    /* padding-bottom: 5rem; */
   }
   
-  .about_container {
-    width: 100%;
+  .aboutUs_container {
+    width: 85%;
     margin: auto;
     display: flex;
-  }
-
-  .about_left {
-    width: 45%;
-    display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
   }
 
-  .about_left h6 {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 21px;
-    color: #FE5402;
+  .items_container {
+    width: 100vw;
+    margin-left: -50vw;
+    position: relative;
+    left: 50%;
   }
 
-  .about_left img {
-    width: 11rem;
-    height: 3rem;
-  }
-
-  .about_left_heading {
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 53px;
-    color: #3B3B3B;
-  }
-
-  .about_left_info {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 30px;
-    color: #475467E5;
-  }
-
-  .about_right {
-    display: flex;
-    width: 45%;
-    justify-content: flex-end;
+  .line {
+    width: 100vw;
+    height: 1px; 
+    background-color: #00000033;
+    margin-left: -50vw;
+    position: relative;
+    left: 50%;
   }

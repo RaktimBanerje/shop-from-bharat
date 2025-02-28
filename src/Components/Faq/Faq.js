@@ -22,6 +22,26 @@ const Faq = () => {
       <div className={styles.aboutUs_container}>
         <Navbar token={token} />
         <div className={styles.line}></div>
+
+        <section
+          className="bg-dark text-white text-center py-5 d-flex align-items-center fullwidth"
+          style={{
+            backgroundImage: "url('https://via.placeholder.com/1920x600')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            marginLeft: -120
+          }}
+        >
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <h1 className="display-4 fw-bold">Welcome to Our Inner Page</h1>
+                <p className="lead text-light">Explore the best of our content, products, and services.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div className={styles.items_container}>
           <Accordion />
           <Footer />
