@@ -57,6 +57,14 @@ const Header = ({ scrollToWYCO }) => {
       {/* Canonical Tag for Preventing Duplicate Content */}
       <link rel="canonical" href="https://www.shopfrombharat.com/" />
 
+      {/* Hreflang Tag (to specify language and region targeting) */}
+      <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
+      <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
+      <link rel="alternate" href="https://www.shopfrombharat.com/us/" hreflang="en-US" />
+      <link rel="alternate" href="https://www.shopfrombharat.com/uk/" hreflang="en-GB" />
+      <link rel="alternate" href="https://www.shopfrombharat.com/de/" hreflang="de" />
+      <link rel="alternate" href="https://www.shopfrombharat.com/fr/" hreflang="fr" />
+
       {/* Open Graph Tags (for Facebook, LinkedIn, etc.) */}
       <meta property="og:title" content="Shop From Bharat - Buy Indian Products Online" />
       <meta property="og:description" content="Shop From Bharat offers a wide range of Indian products with fast delivery worldwide." />
