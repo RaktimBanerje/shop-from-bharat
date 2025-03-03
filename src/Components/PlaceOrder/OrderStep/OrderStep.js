@@ -87,7 +87,7 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       // Make the POST request with the token in the Authorization header
       const response = await axios({
         method: 'post',
-        url: "http://13.210.82.75/api/order/create",
+        url: "https://shop-from-bharat-backend.onrender.com/api/order/create",
         headers: { 'Authorization': 'Bearer ' + token },
         data: newOrder
       });
