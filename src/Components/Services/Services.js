@@ -51,6 +51,7 @@ const Services = () => {
                 alt={item.itemDesc}
                 width={item.width}   // Set the width you want
                 height={item.height} // Set the height you want
+                style={{height: "100%"}}
               />
               <div className={styles.service_desc}>{item.itemDesc}</div>
             </div>

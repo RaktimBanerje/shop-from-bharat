@@ -371,7 +371,7 @@
   background-color: #fff;
   border-radius: 12px;
   margin-top: 1rem;
-  max-height: 50vh;
+  /* max-height: 50vh; */
   overflow-y: scroll;
 }
 
