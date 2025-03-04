@@ -350,3 +350,16 @@ h1 {
   font-size: 1.5rem !important;
   text-align: center;
 }
+
+.Footer-module__qP5oUa__footer_col h3 {
+  color: white;
+}
+
+.Footer-module__qP5oUa__footer_col ul {
+  padding-left: 0;
+  text-decoration: none !important;
+}
+
+.Footer-module__qP5oUa__footer_col ul a {
+  text-decoration: none !important;
+}

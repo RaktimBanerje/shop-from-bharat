@@ -139,7 +139,18 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
 
         if (response.data.status) {
           alert(response.data.message)
-          
+
+          // Construct the message and WhatsApp URL
+          const orderNumber = response.data.order.order_number;
+          const message = `New order placed, Order number is ${orderNumber}`;
+          const phoneNumber = "919731733771"; // Replace with the desired phone number
+
+          // Encode the message to be URL-safe
+          const whatsappUrl = `https://api.whatsapp.com/send/?phone=9836739907&type=phone_number&text=${encodeURIComponent(message)}`;
+
+          // Redirect to WhatsApp
+          window.open(whatsappUrl, '_blank');
+
           setCurrentStep("payment");
         }
       } catch (error) {

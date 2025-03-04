@@ -13,16 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Shop From Bharat - Buy Indian Products Online",
-  description:
-    "Shop From Bharat is your one-stop platform for buying Indian products online. Shop securely and get your favorite Indian items delivered worldwide.",
-};
+// export const metadata = {
+//   title: "Shop From Bharat - Buy Indian Products Online",
+//   description:
+//     "Shop From Bharat is your one-stop platform for buying Indian products online. Shop securely and get your favorite Indian items delivered worldwide.",
+// };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
         {/* Title Tag */}
         <title>Shop From Bharat - Buy Indian Products Online</title>
 
@@ -65,30 +64,6 @@ export default function RootLayout({ children }) {
         <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
         <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
 
-        {/* Structured Data (Schema.org JSON-LD) */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Shop From Bharat",
-              "url": "https://www.shopfrombharat.com",
-              "logo": "https://www.shopfrombharat.com/logo.png",
-              "sameAs": [
-                "https://www.facebook.com/shopfrombharat",
-                "https://twitter.com/shopfrombharat"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-9836739907",
-                "contactType": "Customer Service",
-                "areaServed": "IN",
-                "availableLanguage": "English"
-              }
-            }
-          `}
-        </script>
-
         {/* Preconnect to external domains for faster connections */}
         <link rel="preconnect" href="https://www.google.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -105,7 +80,6 @@ export default function RootLayout({ children }) {
 
         {/* Cache-Control headers for faster loading */}
         <meta httpEquiv="Cache-Control" content="max-age=31536000, public" />
-      </Head>
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
