@@ -81,6 +81,14 @@ export default function RootLayout({ children }) {
         {/* Cache-Control headers for faster loading */}
         <meta httpEquiv="Cache-Control" content="max-age=31536000, public" />
 
+        {/* Hreflang Tag (to specify language and region targeting) */}
+        <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/hi/" hreflang="hi-IN" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/us/" hreflang="en-US" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/fr/" hreflang="fr-FR" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/es/" hreflang="es-ES" />
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
