@@ -35,7 +35,7 @@ const Services = () => {
       <div className={styles.services_container}>
         <div className={styles.services_header}>
           <div className={styles.services_heading}>
-            <h1><b>WHY USE OUR SERVICES?</b></h1>
+            <h1 style={{fontSize: "2.5rem"}}><b>WHY USE OUR SERVICES?</b></h1>
           </div>
           <div className={styles.services_paragraph}>
             <p>Bringing you the best selection of Authentic Indian. Goods and Products Delivered Right to your doorstep</p>

@@ -50,23 +50,23 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
             <h3>Important Links</h3>
             <ul>
               <li>
-                <Link href="/#faq" onClick={scrollToFAQ} legacyBehavior>
+                <Link href="/faq" legacyBehavior>
                   <a>FAQ</a>
                 </Link>
               </li>
               <li style={{ minWidth: "120px" }}>
-                <Link href="/privacy-policy" legacyBehavior>
-                  <a>Privacy policy</a>
+                <Link href="/about-us" legacyBehavior>
+                  <a>About Us</a>
                 </Link>
               </li>
               <li style={{ minWidth: "120px" }}>
-                <Link href="/refund-policy" legacyBehavior>
-                  <a>Refund policy</a>
+                <Link href="/prohibited-items" legacyBehavior>
+                  <a>Prohibited Items</a>
                 </Link>
               </li>
               <li style={{ minWidth: "120px" }}>
-                <Link href="/terms-condition" legacyBehavior>
-                  <a>Terms And Condition</a>
+                <Link href="/service" legacyBehavior>
+                  <a>Service</a>
                 </Link>
               </li>
             </ul>
@@ -108,12 +108,12 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
             </ul> */}
           </div>
         </div>
-        <div className={styles.footer_copyright}>
+        {/* <div className={styles.footer_copyright} style={{zIndex: 1111}}>
           <div className={styles.footer_brand}>
             <Image src={LogoIcon} alt="ShopBharat Logo" width={100} height={30} />
           </div>
           <div className={styles.copyright}>&copy; 2024 All Rights Reserved</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

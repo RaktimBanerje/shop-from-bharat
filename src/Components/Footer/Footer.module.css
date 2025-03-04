@@ -15,7 +15,7 @@
 .footer {
   background-color: #464646;
   width: 100vw;
-  height: 70vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
 }
@@ -64,15 +64,25 @@
   gap: 0.8rem;
 }
 
+.footer_col h3 {
+  color: white;
+}
+
 .footer_col ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding-left: 0;
+  text-decoration: none !important;
 }
 
 .footer_col ul li {
   cursor: pointer;
   font-size: 14px;
+}
+
+.footer_col ul li a {
+  text-decoration: none !important;
 }
 
 
