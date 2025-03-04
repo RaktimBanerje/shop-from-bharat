@@ -138,7 +138,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
         console.log(response)
 
         if (response.data.status) {
-          alert(response.data.message)
+          // alert(response.data.message)
 
           // Construct the message and WhatsApp URL
           const orderNumber = response.data.order.order_number;
@@ -150,7 +150,6 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
 
           // Redirect to WhatsApp
           window.open(whatsappUrl, '_blank');
-
           setCurrentStep("payment");
         }
       } catch (error) {
@@ -175,7 +174,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
 
   return (
     <>
-      <div className={styles.modal_header}>
+      <div className={styles.modal_header} style={{display: "flex", justifyContent: "space-between"}}>
         <div className={styles.header_left}>
           <Image
             src={LeftArrow}
@@ -186,16 +185,16 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
               setCurrentStep("order");
             }}
           />
-          <h2>Enter Your Address</h2>
+          <h2 style={{fontSize: 20, marginTop: 20}}>Select Your Address</h2>
         </div>
-        <button onClick={onClose}>X</button>
+        <button onClick={onClose} style={{height: 40, width: 40, borderRadius: "100%"}}>X</button>
       </div>
 
-      <div className={styles.add_address}>
+      {/* <div className={styles.add_address}>
         <button className={styles.add_address_btn} onClick={toggleAddressForm}>
           {addressForm ? "Remove Address Form" : "Add New Address"}
         </button>
-      </div>
+      </div> */}
 
       {!addressForm ? (
         <div className={styles.addresses_list} style={{ maxHeight: "300px", overflowY: "auto" }}>
@@ -209,8 +208,8 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
                     onChange={() => handleAddressSelect(address._id)}
                   />
                   <div className={styles.address_type}>
-                    <h5>{address.address_type ? address.address_type.toUpperCase() : ''}</h5>
-                    <p>Courier Delivery</p>
+                    <h5 style={{textAlign: 'left'}}>{address.address_type ? address.address_type.toUpperCase() : ''}</h5>
+                    <p style={{fontSize: 13}}>Courier Delivery</p>
                   </div>
                 </div>
 
@@ -227,10 +226,10 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
                   <Image
                     src={PinSVG}
                     alt="Pin"
-                    width={16} // Adjust width as needed
-                    height={16} // Adjust height as needed
+                    width={40} // Adjust width as needed
+                    height={65} // Adjust height as needed
                   />
-                  <span>
+                  <span style={{textAlign: 'left'}}>
                     <strong>{address.name} </strong>
                     {`${address.address}, ${address.city}, ${address.country}, ${address.zip_code}`}
                   </span>
@@ -353,9 +352,23 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
       <div className={styles.modal_actions}>
         <button
           className={styles.proceedBtn}
+          style={{
+            backgroundColor: 'var(--theme)',
+            color: '#fff',
+            padding: '15px 20px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginTop: '20px',
+            width: '50%',
+            fontSize: '17px',
+            fontWeight: '500',
+            lineHeight: '18.88px',
+            textAlign: 'center'
+          }}
           onClick={addressForm ? newAddress : onSubmit}
         >
-          {addressForm ? "Add Address" : "Proceed To Payment"}
+          {addressForm ? "Add Address" : "Place Order"}
         </button>
       </div>
     </>
