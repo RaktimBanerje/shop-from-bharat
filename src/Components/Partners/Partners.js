@@ -48,7 +48,7 @@ const Partners = forwardRef((props, ref) => {
     return (
       <div className={styles.partners} ref={ref}>
         <div className={styles.partners_container}>
-          <h3 className={styles.partners_heading}>Our top delivery partners</h3>
+          <h2><b>OUR TOP DELIVERY PARTNERS</b></h2>
           <div className={styles.partners_list}>
             {partners.map((partner) => (
               <div className={styles.partner_box} key={partner.id}>

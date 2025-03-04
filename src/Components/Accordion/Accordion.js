@@ -88,7 +88,7 @@ const Accordion = forwardRef ((props, ref) => {
   return (
     <div ref={ref} className={styles.accordionMain}>
       <div className={styles.accordion_heading}>
-        <h1>Frequently asked questions</h1>
+        <h2><b>FREQUENTLY ASKED QUESTIONS</b></h2>
       </div>
       <div className={styles.accordion}>
         {accordionData.map(({ title, content, id }) => (

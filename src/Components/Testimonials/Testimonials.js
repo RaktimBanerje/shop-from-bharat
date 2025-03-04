@@ -120,7 +120,7 @@ const Testimonials = () => {
       <div className={styles.testimonials_container}>
         <div className={styles.testimonials_header}>
           <div className={styles.header_left}>
-            <h3 className={styles.header_heading}>Our Customer Feedback</h3>
+            <h2><b>OUR CUSTOMER FEEDBACK</b></h2>
             <div className={styles.header_info}>
               Don’t take our word for it. Trust our customers
             </div>

@@ -79,7 +79,7 @@ const Sites = () => {
       <div className={styles.sites_container}>
         <div className={styles.sites_header}>
           <div className={styles.heading}>
-            <h2>Recommended sites from India</h2>
+            <h2><b>Recommended sites from India</b></h2>
           </div>
           <div className={styles.sites_right}>
             {/* Search and Filter inputs can be implemented as needed */}

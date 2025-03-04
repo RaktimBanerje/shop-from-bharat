@@ -47,6 +47,8 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     { label: '7 - 10 kg', value: '7-10 kg' },
   ];
 
+  const [orderProducts, setOrderProducts]  = useState([])
+
   const [formData, setFormData] = useState({
     product_link: "",
     product_title: "",
@@ -93,6 +95,14 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       });
       
       if (response) {
+        console.log({OrderID: response.data.order.order_number})
+
+        axios.post('https://wajd.co.uk/email.php', {order_number: response.data.order.order_number})
+          .then(response => {})
+          .catch(error => {
+              console.error("Error making order request:", error);
+        });
+
         toast.success("Order created successfully", {
           duration: 2000,
           position: "top-center",
@@ -138,6 +148,9 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       alert("Please fill in all fields before submitting.");
       return;
     }
+
+    console.log(formData)
+    setOrderProducts(prevOrderProducts => [...prevOrderProducts, formData]);
 
     setFormData({
       product_link: "",
