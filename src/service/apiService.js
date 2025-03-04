@@ -1,6 +1,6 @@
 import axios from 'axios';
 // const baseUrl = process.env.REACT_APP_BASE_URL;
-const baseUrl = "https://shop-from-bharat-backend.onrender.com";
+const baseUrl = "https://13.210.82.75";
 async function apiServiceHandler(method, endpoint, payload) {
   const token = localStorage.getItem('BHARAT_TOKEN');
   try {

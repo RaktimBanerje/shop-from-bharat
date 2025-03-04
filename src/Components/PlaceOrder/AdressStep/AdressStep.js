@@ -10,7 +10,7 @@ import { CssTextField } from "../index";
 import Image from "next/image";  // Import Image from next/image
 import styles from './Addresses.module.css'
 
-const baseUrl = "https://shop-from-bharat-backend.onrender.com";  // Your API base URL
+const baseUrl = "https://13.210.82.75";  // Your API base URL
 
 const AddressStep = ({ onClose, setCurrentStep }) => {
   const [addressForm, setAddressForm] = useState(false);
