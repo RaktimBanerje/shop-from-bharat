@@ -64,7 +64,7 @@ import HeadsLogo from './assets/headsupfortails.jpg'
 export const platforms = [
   {
     name: "AJIO",
-    link: "https://www.ajio.com/",
+    link: "/service/ajio",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -80,7 +80,7 @@ export const platforms = [
   },
   {
     name: "Myntra",
-    link: "https://www.myntra.com",
+    link: "/service/myntra",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -94,7 +94,7 @@ export const platforms = [
   },
   {
     name: "Nykaa",
-    link: "https://www.nykaa.com",
+    link: "/service/nykaa",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -106,7 +106,7 @@ export const platforms = [
   },
   {
     name: "Decathlon",
-    link: "https://www.decathlon.in",
+    link: "/service/decathlon",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -118,13 +118,13 @@ export const platforms = [
   },
   {
     name: "UNIQLO",
-    link: "https://www.uniqlo.com/in/en/",
+    link: "/service/uniqlo",
     categories: ["MEN'S FASHION", "WOMEN'S FASHION","INTERNATIONAL BRANDS IN INDIA"],
     imgSrc: UniqloLogo,
   },
   {
     name: "Flipkart",
-    link: "https://www.flipkart.com",
+    link: "/service/flipkart",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -146,7 +146,7 @@ export const platforms = [
   },
   {
     name: "Amazon India",
-    link: "https://www.amazon.in",
+    link: "/service/amazon",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -166,7 +166,7 @@ export const platforms = [
   },
   {
     name: "ZARA India",
-    link: "https://www.zara.com/in/",
+    link: "/service/zara",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -179,7 +179,7 @@ export const platforms = [
   },
   {
     name: "Adidas India",
-    link: "https://www.adidas.co.in",
+    link: "/service/adidas-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -192,7 +192,7 @@ export const platforms = [
   },
   {
     name: "H&M India",
-    link: "https://www2.hm.com/en_in/index.html",
+    link: "/service/h-m-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -205,7 +205,7 @@ export const platforms = [
   },
   {
     name: "VegNonVeg",
-    link: "https://www.vegnonveg.com",
+    link: "/service/vegnonveg",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -218,7 +218,7 @@ export const platforms = [
   },
   {
     name: "NNNOW",
-    link: "https://www.nnnow.com",
+    link: "/service/nnnow",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -231,7 +231,7 @@ export const platforms = [
   },
   {
     name: "Tanishq",
-    link: "https://www.tanishq.co.in",
+    link: "/service/tanishq",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -243,7 +243,7 @@ export const platforms = [
   },
   {
     name: "Onitsuka Tiger India",
-    link: "https://www.onitsukatiger.com/in/en-in/",
+    link: "/service/onitsuka-tiger-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -254,7 +254,7 @@ export const platforms = [
   },
   {
     name: "Tata CLiQ",
-    link: "https://www.tatacliq.com",
+    link: "/service/tata-cliq",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -268,7 +268,7 @@ export const platforms = [
   },
   {
     name: "Clarks India",
-    link: "https://www.clarks.in",
+    link: "/service/clarks-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -280,7 +280,7 @@ export const platforms = [
   },
   {
     name: "PUMA India",
-    link: "https://in.puma.com/in/en",
+    link: "/service/puma-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -293,7 +293,7 @@ export const platforms = [
   },
   {
     name: "Birkenstock India",
-    link: "https://www.birkenstock.in",
+    link: "/service/birkenstock-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -304,7 +304,7 @@ export const platforms = [
   },
   {
     name: "Crocs India",
-    link: "https://www.crocs.in",
+    link: "/service/crocs-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -316,7 +316,7 @@ export const platforms = [
   },
   {
     name: "Lenskart",
-    link: "https://www.lenskart.com",
+    link: "/service/lenskart",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -328,7 +328,7 @@ export const platforms = [
   },
   {
     name: "Reebok India",
-    link: "https://reebok.abfrl.in",
+    link: "/service/reebok-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -340,7 +340,7 @@ export const platforms = [
   },
   {
     name: "RedTape",
-    link: "https://redtape.com",
+    link: "/service/redtape",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -352,7 +352,7 @@ export const platforms = [
   },
   {
     name: "Shoppers Stop",
-    link: "https://www.shoppersstop.com",
+    link: "/service/shoppers-stop",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -369,7 +369,7 @@ export const platforms = [
   },
   {
     name: "Jockey India",
-    link: "https://www.jockey.in",
+    link: "/service/jockey-india",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -381,7 +381,7 @@ export const platforms = [
   },
   {
     name: "Khadi Natural",
-    link: "https://www.khadinatural.com",
+    link: "/service/khadi-natural",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -394,7 +394,7 @@ export const platforms = [
 
   {
     name: "Mokobara",
-    link: "https://mokobara.com",
+    link: "/service/mokobara",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -406,7 +406,7 @@ export const platforms = [
   },
   {
     name: "Neeman's",
-    link: "https://neemans.com",
+    link: "/service/neemans",
     categories: [
       "MEN'S FASHION",
       "WOMEN'S FASHION",
@@ -418,13 +418,13 @@ export const platforms = [
   },
   {
     name: "XYXX",
-    link: "https://xyxxcrew.com",
+    link: "/service/xyxx",
     categories: ["MEN'S FASHION", "ACCESSORIES"],
     imgSrc: XYXXLogo,
   },
   {
     name: "Clovia",
-    link: "https://www.clovia.com",
+    link: "/service/clovia",
     categories: [
       "WOMEN'S FASHION",
       "MARKETPLACE",
@@ -437,19 +437,19 @@ export const platforms = [
   },
   {
     name: "BlueStone",
-    link: "https://www.bluestone.com",
+    link: "/service/bluestone",
     categories: ["WOMEN'S FASHION", "JEWELS & TIME PIECES", "ACCESSORIES"],
     imgSrc: BlueStoneLogo,
   },
   {
     name: "Lakme",
-    link: "https://www.lakmeindia.com/pages/shoppable",
+    link: "/service/lakme",
     categories: ["WOMEN'S FASHION", "HEALTH & BEAUTY", "ACCESSORIES"],
     imgSrc: LakmeLogo,
   },
   {
     name: "FirstCry",
-    link: "https://www.firstcry.com",
+    link: "/service/firstcry",
     categories: [
       "MARKETPLACE",
       "HEALTH & BEAUTY",
@@ -460,20 +460,19 @@ export const platforms = [
   },
   {
     name: "Forest Essentials",
-    link: "https://www.forestessentialsindia.com",
+    link: "/service/forest-essentials",
     categories: ["HEALTH & BEAUTY", "ENVIROMENT FRIENDLY", "ACCESSORIES","INDIAN BRANDS"],
     imgSrc: ForestLogo,
-
   },
   {
     name: "Amala Earth",
-    link: "https://amala.earth",
+    link: "/service/amala-earth",
     categories: ["HEALTH & BEAUTY", "ENVIROMENT FRIENDLY", "ACCESSORIES","INDIAN BRANDS"],
     imgSrc: AmalaLogo,
   },
   {
     name: "BabyChakra",
-    link: "https://www.babychakra.com",
+    link: "/service/babychakra",
     categories: [
       "HEALTH & BEAUTY",
       "ENVIROMENT FRIENDLY",
@@ -485,168 +484,146 @@ export const platforms = [
   },
   {
     name: "Mivi",
-    link: "https://www.mivi.in",
+    link: "/service/mivi",
     categories: ["HEALTH & BEAUTY", "CONSUMER ELECTRONICS", "ACCESSORIES"],
     imgSrc: MiviLogo,
   },
   {
     name: "Sleepwell",
-    link: "https://mysleepwell.com",
+    link: "/service/sleepwell",
     categories: ["HEALTH & BEAUTY", "MARKETPLACE", "ACCESSORIES","BUSINESS, EQUIPEMENT & SCIENCE"],
     imgSrc: SleepwellLogo,
   },
-  // {
-  //   name: "Jabong",
-  //   link: "https://www.jabong.com",
-  //   categories: [
-  //     "MEN'S FASHION",
-  //     "WOMEN'S FASHION",
-  //     "MARKETPLACE",
-  //     "HEALTH & BEAUTY",
-  //     "CHILDREN STORE",
-  //     "ACCESSORIES",
-  //   ],
-  //   imgSrc: JabongLogo,
-  // },
-  // {
-  //   name: "Vistaprint",
-  //   link: "https://www.vistaprint.in",
-  //   categories: ["HEALTH & BEAUTY", "MARKETPLACE", "ACCESSORIES"],
-  //   imgSrc: VistaprintLogo,
-  // },
   {
     name: "Pepperfry",
-    link: "https://www.pepperfry.com/",
+    link: "/service/pepperfry",
     categories: ["CONSUMER ELECTRONICS", "MARKETPLACE", "ACCESSORIES","HOME & KITCHEN"],
     imgSrc: PepperfryLogo,
   },
   {
     name: "Mrokart",
-    link: "https://www.mrokart.com/",
+    link: "/service/mrokart",
     categories: ["BUSINESS, EQUIPEMENT & SCIENCE", "MARKETPLACE","HOME & KITCHEN"],
     imgSrc: MrokartLogo,
   },
   {
     name: "Orange Tree",
-    link: "https://www.orangetree.in/",
+    link: "/service/orange-tree",
     categories: ["CONSUMER ELECTRONICS", "MARKETPLACE", "LIGHTS & FURNITURES","HOME & KITCHEN"],
     imgSrc: OrangeTreeLogo,
   },
   {
     name: "EazeeBox",
-    link: "https://www.eazeebox.com/",
+    link: "/service/eazeebox",
     categories: ["BUSINESS, EQUIPEMENT & SCIENCE","CONSUMER ELECTRONICS", "MARKETPLACE", "LIGHTS & FURNITURES","HOME & KITCHEN"],
     imgSrc: EazeeboxLogo,
   },
   {
     name: "Zana Motorcycles",
-    link: "https://www.zanamotorcycles.com/",
+    link: "/service/zana-motorcycles",
     categories: ["BUSINESS, EQUIPEMENT & SCIENCE","VEHICLES", "MARKETPLACE","ACCESSORIES"],
     imgSrc: ZanaLogo,
   },
   {
     name: "Industry Buying",
-    link: "https://www.industrybuying.com/",
+    link: "/service/industry-buying",
     categories: ["HOME & KITCHEN","HEALTH & BEAUTY", "MARKETPLACE","CONSUMER ELECTRONICS"],
     imgSrc: IndustryLogo,
   },
   {
     name: "Boult Audio",
-    link: "https://www.boultaudio.com/",
+    link: "/service/boult-audio",
     categories: ["JEWELS & TIME PIECES", "MARKETPLACE","CONSUMER ELECTRONICS"],
     imgSrc: BoultLogo,
   },
   {
     name: "CrossBeats",
-    link: "https://crossbeats.com/",
+    link: "/service/crossbeats",
     categories: ["JEWELS & TIME PIECES", "MARKETPLACE","CONSUMER ELECTRONICS","ACCESSORIES","HOME & KITCHEN"],
     imgSrc: CrossBeatsLogo,
   },
   {
     name: "SleepyCat",
-    link: "https://sleepycat.in/",
+    link: "/service/sleepycat",
     categories: ["INDIAN BRANDS", "MARKETPLACE","HEALTH & BEAUTY","HOME & KITCHEN"],
     imgSrc: SleepyCatLogo,
   },
   {
     name: "Supertails",
-    link: "https://supertails.com/",
+    link: "/service/supertails",
     categories: ["INDIAN BRANDS", "MARKETPLACE","PET SUPPLIES"],
     imgSrc: SupertailsLogo,
   },
   {
     name: "Zebronics",
-    link: "https://zebronics.com/",
+    link: "/service/zebronics",
     categories: ["HOME & KITCHEN", "INDIAN BRANDS","CONSUMER ELECTRONICS","MARKETPLACE","PET SUPPLIES"],
     imgSrc: ZebronicsLogo,
   },
   {
     name: "Aqualogica",
-    link: "https://aqualogica.in/",
+    link: "/service/aqualogica",
     categories: ["HEALTH & BEAUTY", "INDIAN BRANDS"],
     imgSrc: AqualogicaLogo,
   },
   {
     name: "Biotique",
-    link: "https://www.biotique.com/",
+    link: "/service/biotique",
     categories: ["HEALTH & BEAUTY","ACCESSORIES","INDIAN BRANDS"],
     imgSrc: BiotiqueLogo,
   },
   {
     name: "PeeSafe",
-    link: "https://www.peesafe.com/",
+    link: "/service/peesafe",
     categories: ["HEALTH & BEAUTY","ENVIROMENT FRIENDLY"],
     imgSrc: PeeSafeLogo,
   },
   {
     name: "Dell",
-    link: "https://www.dell.com/en-in",
+    link: "/service/dell",
     categories: ["INTERNATIONAL BRANDS IN INDIA","CONSUMER ELECTRONICS"],
     imgSrc: DellLogo,
   },
   {
     name: "Samsung",
-    link: "https://www.samsung.com/in/",
+    link: "/service/samsung",
     categories: ["INTERNATIONAL BRANDS IN INDIA","CONSUMER ELECTRONICS","ACCESSORIES"],
     imgSrc: SamsungLogo,
   },
   {
     name: "Apple",
-    link: "https://www.apple.com/in/",
+    link: "/service/apple",
     categories: ["LUXURY","CONSUMER ELECTRONICS"],
     imgSrc: AppleLogo,
   },
   {
     name: "Atomberg",
-    link: "https://atomberg.com/",
+    link: "/service/atomberg",
     categories: ["CONSUMER ELECTRONICS","HOME & KITCHEN","INDIAN BRANDS"],
     imgSrc: AtombergLogo,
   },
   {
     name: "Boat",
-    link: "https://www.boat-lifestyle.com/",
+    link: "/service/boat",
     categories: ["JEWELS & TIME PIECES","CONSUMER ELECTRONICS"],
     imgSrc: BoatLogo,
   },
   {
     name: "Reebok",
-    link: "https://reebok.abfrl.in/",
+    link: "/service/reebok",
     categories: ["SPORTS & TOYS","INTERNATIONAL BRANDS IN INDIA"],
     imgSrc: ReebokLogo,
   },
   {
     name: "Heads Up For Tails",
-    link: "https://headsupfortails.com/",
+    link: "/service/heads-up-for-tails",
     categories: ["PET SUPPLIES","LUXURY"],
     imgSrc: HeadsLogo,
   },
   {
     name: "Heads Up For Tails",
-    link: "https://headsupfortails.com/",
+    link: "/service/heads-up-for-tails",
     categories: ["PET SUPPLIES","LUXURY"],
     imgSrc: HeadsLogo,
-  },
-  
-  
-  
+  },  
 ];

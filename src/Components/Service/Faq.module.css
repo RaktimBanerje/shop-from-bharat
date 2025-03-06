@@ -10,7 +10,14 @@
 }
 
    */
-  .aboutUs {
+
+
+  .container ul {
+    list-style-type: disc; /* Displays the disk-shaped bullet */
+    padding-left: 20px; /* Optional: Adds left padding for better spacing */
+  }
+
+   .aboutUs {
     background-color: var(--background-aboutUs);
     width: 100vw;
     height: fit-content;
