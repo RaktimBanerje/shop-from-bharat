@@ -94,6 +94,12 @@ export default function RootLayout({ children }) {
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
+
+
+        <div className="floting-btn">
+          <a href="#">Place Order</a>
+        </div>
+
       </body>
 
 
