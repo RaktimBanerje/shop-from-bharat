@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* font-family: "Raleway", sans-serif; */
+/* font-family: "Open Sans", sans-serif; */
+
 /* :root {
   --heading: #393a56;
   --text: #464646;
@@ -314,9 +319,11 @@ h2) {
 } */
 
 
-body {
-  overflow-x: hidden;
-}
+/* font-family: "Raleway", sans-serif; */
+/* font-family: "Open Sans", sans-serif; */
+
+
+
 
 :root {
   --heading: #393a56;
@@ -335,16 +342,21 @@ body {
   --bs-btn-bg: #fe5402;
 }
 
-h1 { font-size: 2rem; font-family: 'Arial', sans-serif !important; }  
-h2 { font-size: 1.75rem; font-family: 'Arial', sans-serif !important; }  
-h3 { font-size: 1.5rem; font-family: 'Arial', sans-serif !important; }  
-h4 { font-size: 1.25rem; font-family: 'Arial', sans-serif !important; }  
-h5 { font-size: 1.125rem; font-family: 'Arial', sans-serif !important; }  
-h6 { font-size: 1rem; font-family: 'Arial', sans-serif !important; }  
-p  { font-size: 1rem; font-family: 'Arial', sans-serif !important; }  
+body {
+  overflow-x: hidden; font-family: "Open Sans", sans-serif;
+}
+
+h1 { font-size: 2rem; font-family: 'Raleway', sans-serif !important;  font-weight: 700 !important;}  
+h1 span {color: var(--theme);}
+h2 { font-size: 1.75rem; font-family: 'Raleway', sans-serif !important;  font-weight: 600 !important; text-transform: uppercase;}  
+h3 { font-size: 1.5rem; font-family: 'Raleway', sans-serif !important;  font-weight: 600 !important;}  
+h4 { font-size: 1.25rem; font-family: 'Raleway', sans-serif !important; }  
+h5 { font-size: 1.125rem; font-family: 'Raleway', sans-serif !important; }  
+h6 { font-size: 1rem; font-family: 'Raleway', sans-serif !important; }  
+p  { font-size: 1rem; font-family: 'Raleway', sans-serif !important; }  
 
 p {
-  color: var(--theme);
+  color: var(--text); line-height: 1.85 !important; font-weight: 400;
 }
 
 h2 {
@@ -366,7 +378,7 @@ li {
 }
 
 p, span {
-  color: var(--theme);
+  color: var(--text);
 }
 
 a {
@@ -389,13 +401,95 @@ h1 {
   background-color: #fe5402;
 }
 
-
-.header-down-part .header-info{width: 675px; max-width: 100%; position: relative; transform: none; top: 0; left: 0; margin: auto;}
+.my-container {width: 100% !important; max-width: 86% !important;}
+img{max-width: 100%;}
+.Header-module__uO3NCW__header{height: auto !important; position: relative;}
+.Header-module__uO3NCW__container{position: absolute; left: 0; right: 0; top: 0; z-index: 9999; }
+.header-down-part {padding: 4rem 0 10rem; position: relative; min-height: 100vh;}
+.header-down-part .header-info{width: 675px; max-width: 100%; position: relative; transform: none; top: 0; left: 0; margin: auto; z-index: 2;}
 .header-down-part .header-info button {width: auto; height: auto; min-width: 200px; padding: 10px 25px; border-radius: 36px;}
 
-.header-down-part .Header-module__uO3NCW__header_input {width: auto; gap: 15px 10px; position: relative; z-index: 2;}
-.header-down-part .Header-module__uO3NCW__header_img{position: absolute;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  z-index: 1;}
+.header-down-part .Header-module__uO3NCW__header_input {width: auto; gap: 15px 10px; position: relative;}
+.header-down-part .Header-module__uO3NCW__header_img{position: absolute; width: 100%; height: 100%; bottom: 0; z-index: 1;}
+.header-down-part .Header-module__uO3NCW__header_img img {width: 100%; object-fit: cover; height: 100%;}
+
+.hm-abt-img img{width: 100%; height: 100%; object-fit: cover;}
+.home-about-section{padding: 6.25rem 0;}
+.Categories-module__MfRqiG__category_item{width: 100% !important; height: 100% !important;}
+.Categories-module__MfRqiG__category_item:hover {transform: scale(1) !important; box-shadow: 0 0 20px rgba(254, 84, 2, .25);}
+
+.Categories-module__MfRqiG__categories_container .slick-track {display: flex; flex-wrap: wrap;}
+.Categories-module__MfRqiG__categories_container .slick-track .slick-slide {height: auto;}
+.Categories-module__MfRqiG__categories_container .slick-track .slick-slide > div {height: 100%; padding: 20px 0;}
+.Categories-module__MfRqiG__category_item_image p {text-align: center; line-height: 1.3 !important; margin: 0;}
+
+.Categories-module__MfRqiG__categories{margin-top: 0 !important; padding: 6.25rem 0;}
+.Categories-module__MfRqiG__categories_container{gap: 0 !important; padding-right: 0rem !important;}
+.Categories-module__MfRqiG__categories_header{margin-top: 0 !important;}
+
+.Services-module__7BRr6W__services {width: 100% !important; padding: 6.25rem 0; margin: 0 !important;}
+.Services-module__7BRr6W__services_header {gap:0 !important;}
+.Sites-module__5amwqW__sites_items {justify-content: space-between; transition: .5s;}
+.Sites-module__5amwqW__site_item{transition: .5s;}
+.Sites-module__5amwqW__site_item:hover {transition: .5s;}
+
+.Testimonials-module__Wc6cXa__header_left {gap: 0 !important;}
+.Testimonials-module__Wc6cXa__header_right button {border: 1px solid #fe5402 !important; background-color: #fe5402 !important; color: #fff !important;}
+.Testimonials-module__Wc6cXa__header_right button span {color: #fff;}
+.Testimonials-module__Wc6cXa__header_right button img {filter: brightness(0) invert(1);}
+
+.Testimonials-module__Wc6cXa__testimonials .slick-slide {padding: 0 15px;}
+.Testimonials-module__Wc6cXa__testimonials .slick-dots {margin-top: 30px; position: relative; bottom: 0;}
+
+.whatsapp-area-main { position: fixed; bottom: 50px; right: 20px; z-index: 9999;}
+.whatsapp-area-main a { position: relative; width: 130px; height: 130px; display: inline-flex; align-items: center; justify-content: center;}
+.whatsapp-area-main a .bg-area {position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: rotate 16s linear infinite;}
+.whatsapp-area-main a .whatsapp-area {width: 45px;}
+.whatsapp-area-main a:hover .whatsapp-area {animation: zoom-in-out 0.8s ease infinite;}
+
+
+@keyframes zoom-in-out {
+  0% {
+    width: 45px;
+  }
+  50% {
+    width: 38px;
+  }
+  100% {
+    width: 45px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+/* ==============================   RESPONSIVE MIN WIDTH   ================================== */
+
+
+@media (min-width: 1400px) {
+
+  h1 { font-size: 3.5rem !important; }  
+  h2 { font-size: 2.85rem; margin-bottom: 25px !important;}  
+  h3 { font-size: 2rem; } 
+
+
+}
+
+.my-navbar {display: inline-block;}
+
+
+
+@media screen and (max-width: 575px) {
+
+ 
+  
+  }
+

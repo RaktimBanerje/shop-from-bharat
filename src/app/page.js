@@ -57,45 +57,50 @@ export default function HomePage() {
       <div className="app">
         <Header scrollToWYCO={scrollToWYCO} />
 
-        <div className="container" style={{marginTop: 180}}>
-            <div className="row px-0">
-              <div className="col-md-7 p-0">
-                <h2>Shop From Bharat Services In A Nutshell</h2>
+        <section className="home-about-section">
+          <div className="container my-container">
+              <div className="row px-0 gx-5">
+                <div className="col-md-7">
+                  <h2>Shop From Bharat Services In A Nutshell</h2>
 
-                <p className="text-dark">As the name implies, Shop From Bharat is a package forwarding service where you can buy Indian products online, irrespective of where you are located currently. Unlike conventional freight forwarding services, we take the safety of your products seriously. We comprehend the concerns of being unable to receive Indian products outside the country.</p>
+                  <p className="text-dark">As the name implies, Shop From Bharat is a package forwarding service where you can buy Indian products online, irrespective of where you are located currently. Unlike conventional freight forwarding services, we take the safety of your products seriously. We comprehend the concerns of being unable to receive Indian products outside the country.</p>
+                  
+                  <p className="text-dark">Taking your concerns into consideration, we have crafted a global delivery service that enhances your online shopping experience. At Shop From Bharat, we provide a seamless package forwarding experience, offering secure and timely shipping, transparent tracking, and excellent customer service. 
+                  </p>
+
+                  <p className="text-dark">Our platform allows Indian products online shopping and have your purchases conveniently delivered to you internationally. We cater to both individuals looking for unique Indian items and businesses in need of consistent, reliable shipping solutions.</p>
                 
-                <p className="text-dark">Taking your concerns into consideration, we have crafted a global delivery service that enhances your online shopping experience. At Shop From Bharat, we provide a seamless package forwarding experience, offering secure and timely shipping, transparent tracking, and excellent customer service. 
-                </p>
+                  <p className="text-dark">With our competitive rates and commitment to excellence, Shop From Bharat makes cross-border shopping a breeze, ensuring that quality Indian products reach you quickly and safely, no matter the destination. No more hassle of buying wholesale products online India. 
+                  </p>
+                </div>
 
-                <p className="text-dark">Our platform allows Indian products online shopping and have your purchases conveniently delivered to you internationally. We cater to both individuals looking for unique Indian items and businesses in need of consistent, reliable shipping solutions.</p>
-              
-                <p className="text-dark">With our competitive rates and commitment to excellence, Shop From Bharat makes cross-border shopping a breeze, ensuring that quality Indian products reach you quickly and safely, no matter the destination. No more hassle of buying wholesale products online India. 
-                </p>
+                <div className="col-md-5 hm-abt-img">
+                <img 
+                  src="https://static.vecteezy.com/system/resources/previews/033/296/649/large_2x/shopping-cart-overflowing-with-golden-gift-boxes-on-a-solid-orange-background-free-photo.jpg" 
+                  width={600}
+                  alt="Banner Image" 
+                />
+                </div>
               </div>
+          </div>
+        </section>
 
-              <div className="col-md-4">
-              <img 
-                src="https://static.vecteezy.com/system/resources/previews/033/296/649/large_2x/shopping-cart-overflowing-with-golden-gift-boxes-on-a-solid-orange-background-free-photo.jpg" 
-                width={600}
-                height="100%"
-                alt="Banner Image" 
-              />
+
+        <section className="home-about-two-section">
+          <div className="container">
+              <div className="row d-flex justify-content-center px-0">
+                <div className="col-md-9">
+                  <h2 className="text-center text-dark">Bring Indian Products Home With The Most Trusted Online Shipping Store Globally</h2>
+
+                  <p className="text-center text-dark">Looking for international shipping online stores that simplify delivery for you? We, at Shop From Bharat have made it easier for you to bring home products made in India. Whether you're shopping on Amazon India online shopping or exploring the best deals on Flipkart online shopping, we make delivery seamless. 
+                  </p>
+
+                  <p className="text-center text-dark">Get your favorite products from international shopping sites India delivered to your doorstep without any damage. With our reliable international shipping online stores, you can now enjoy seamless shipping of Indian goods worldwide, from fashion to electronics, home decor, and more. Experience hassle-free shopping and quick delivery with us, wherever you are!</p>
+                </div>
               </div>
-            </div>
-        </div>
-
-        <div className="container" style={{marginTop: 80, marginBottom: 80}}>
-            <div className="row d-flex justify-content-center px-0">
-              <div className="col-md-9">
-                <h2 className="text-center text-dark">Bring Indian Products Home With The Most Trusted Online Shipping Store Globally</h2>
-
-                <p className="text-center text-dark">Looking for international shipping online stores that simplify delivery for you? We, at Shop From Bharat have made it easier for you to bring home products made in India. Whether you're shopping on Amazon India online shopping or exploring the best deals on Flipkart online shopping, we make delivery seamless. 
-                </p>
-
-                <p className="text-center text-dark">Get your favorite products from international shopping sites India delivered to your doorstep without any damage. With our reliable international shipping online stores, you can now enjoy seamless shipping of Indian goods worldwide, from fashion to electronics, home decor, and more. Experience hassle-free shopping and quick delivery with us, wherever you are!</p>
-              </div>
-            </div>
-        </div>
+          </div>
+        </section>  
+        
 
 
         <Categories ref={wycoRef} />

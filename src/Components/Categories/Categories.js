@@ -5,30 +5,36 @@ import Slider from 'react-slick'; // React Slick
 import styles from './Categories.module.css';
 
 // Static assets from public folder
-const PharmacySvg = '/assets/Health.svg';
-const FashionSvg = '/assets/clothes.svg';
-const KitchenSvg = '/assets/Kitchen.svg';
-const SofaSvg = '/assets/Sofa.svg';
-const FoodSvg = '/assets/food.svg';
-const ArrowSvg = '/assets/Vector.svg';
+const Accessories = '/assets/images/Accessories.png';
+const ChildStore = '/assets/images/ChildStore.png';
+const Electronics = '/assets/images/Electronics.png';
+const EnvironmentFriendly = '/assets/images/EnvironmentFriendly.png';
+const Jewels = '/assets/images/Jewels.png';
+const Kitchen = '/assets/images/Kitchen.png';
+const Luxury = '/assets/images/Luxury.png';
+const Maracas = '/assets/images/Maracas.png';
+const Market = '/assets/images/Market.png';
+const Mensfashion = '/assets/images/Mensfashion.png';
+const Shopping = '/assets/images/Shopping.png';
+const VehiclesParts = '/assets/images/VehiclesParts.png';
+const WomenFashion = '/assets/images/WomenFashion.png';
+const ArrowSvg = '/assets/images/Vector.svg';
 
 // Items list remains the same
 const items = [
-  { id: 1, name: "MEN'S FASHION", itemSrc: FashionSvg },
-  { id: 2, name: "WOMEN'S FASHION", itemSrc: FashionSvg },
-  { id: 3, name: "MARKETPLACE", itemSrc: KitchenSvg },
-  { id: 4, name: "HEALTH & BEAUTY", itemSrc: FoodSvg },
-  { id: 5, name: "CONSUMER ELECTRONICS", itemSrc: PharmacySvg },
-  { id: 6, name: "LIGHTS & FURNITURE", itemSrc: SofaSvg },
-  { id: 7, name: "JEWELS & TIMEPIECES", itemSrc: PharmacySvg },
-  { id: 8, name: "ENVIRONMENT FRIENDLY", itemSrc: PharmacySvg },
-  { id: 9, name: "CHILDREN STORE", itemSrc: PharmacySvg },
-  { id: 10, name: "SPORTS & TOYS", itemSrc: PharmacySvg },
-  { id: 11, name: "ACCESSORIES", itemSrc: SofaSvg },
-  { id: 12, name: "HOME & KITCHEN", itemSrc: PharmacySvg },
-  { id: 13, name: "VEHICLES & PARTS", itemSrc: PharmacySvg },
-  { id: 14, name: "INDIAN BRANDS", itemSrc: PharmacySvg },
-  { id: 15, name: "LUXURY", itemSrc: PharmacySvg },
+  { id: 1, name: "Accessories", itemSrc: Accessories },
+  { id: 2, name: "Child Store", itemSrc: ChildStore },
+  { id: 3, name: "Electronics", itemSrc: Electronics },
+  { id: 4, name: "Environment Friendly", itemSrc: EnvironmentFriendly },
+  { id: 5, name: "Jewels", itemSrc: Jewels },
+  { id: 6, name: "Kitchen", itemSrc: Kitchen },
+  { id: 7, name: "Luxury", itemSrc: Luxury },
+  { id: 8, name: "Maracas", itemSrc: Maracas },
+  { id: 9, name: "CHILDREN STORE", itemSrc: Market },
+  { id: 10, name: "Mens Fashion", itemSrc: Mensfashion },
+  { id: 11, name: "Shopping", itemSrc: Shopping },
+  { id: 12, name: "Vehicles Parts", itemSrc: VehiclesParts },
+  { id: 13, name: "Women Fashion", itemSrc: WomenFashion },
 ];
 
 const Categories = React.forwardRef((props, ref) => {
@@ -50,7 +56,7 @@ const Categories = React.forwardRef((props, ref) => {
     <div className={styles.categories} ref={ref}>
       <div className={styles.categories_container}>
         <div className={`${styles.categories_header}`}>
-          <h2><b>WHAT CAN YOU ORDER FROM US?</b></h2>
+          <h2>WHAT CAN YOU ORDER FROM US?</h2>
           <Link href="/platforms" passHref legacyBehavior>
             <a className={styles.sites_viewall}>
               <div className={styles.sites_view}>View All</div>
@@ -64,7 +70,7 @@ const Categories = React.forwardRef((props, ref) => {
           {items.map((item) => (
             <div className={styles.category_item} key={item.id}>
               <div className={styles.category_item_image}>
-                <Image src={item.itemSrc} alt={item.name} width={150} height={150} />
+                <Image src={item.itemSrc} alt={item.name} width={150} height={150} unoptimized />
                 <p className={styles.category_item_name}>{item.name}</p>
               </div>
             </div>

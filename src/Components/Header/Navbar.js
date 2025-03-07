@@ -44,7 +44,7 @@ const Navbar = ({ token }) => {
 
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar} my-navbar`}>
         <Link href="/" className={styles.brand}>
           <Image src={ShopBharatLogo} alt="ShopBharat Logo" />
         </Link>

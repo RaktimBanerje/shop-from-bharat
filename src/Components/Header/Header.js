@@ -45,9 +45,9 @@ const Header = ({ scrollToWYCO }) => {
       <div className={`${styles.header_content} header-down-part`}>
         <div className={`${styles.header_info} header-info`}>
           <div className={styles.header_main}>
-            <h2>
+            <h1>
               Shop Products from <span style={{fontWeight: 'bold'}}>INDIA</span>
-            </h2>
+            </h1>
           </div>
           <div className={styles.header_paragraph}>
             <p>

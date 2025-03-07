@@ -82,11 +82,23 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
 
   const createOrder = async (newOrder) => {
     try {
-      console.log(orderProducts)
-      return
-      setIsLoading(true); // Set loading to true while waiting for the API response
+      // Map the keys to more human-readable labels
+      const humanReadableData = orderProducts.map(product => ({
+        "Product Link": product.product_link,
+        "Product Title": product.product_title,
+        "Product Size": product.product_size,
+        "Quantity": product.quantity,
+        "Colors Available": product.colors,
+        "Customer Comments": product.comments,
+        "Weight Range": product.weight,
+        "Price (USD)": product.price
+      }));
+
+      console.log(humanReadableData)
+      localStorage.setItem('productData', JSON.stringify(humanReadableData));
+      setIsLoading(true);
       
-      const token = localStorage.getItem('BHARAT_TOKEN'); // Get token from localStorage
+      const token = localStorage.getItem('BHARAT_TOKEN'); 
       
       // Make the POST request with the token in the Authorization header
       const response = await axios({

@@ -120,9 +120,9 @@ const Testimonials = () => {
       <div className={styles.testimonials_container}>
         <div className={styles.testimonials_header}>
           <div className={styles.header_left}>
-            <h2><b>OUR CUSTOMER FEEDBACK</b></h2>
+            <h2>OUR CUSTOMER FEEDBACK</h2>
             <div className={styles.header_info}>
-              Don’t take our word for it. Trust our customers
+              <p>Don’t take our word for it. Trust our customers</p>
             </div>
           </div>
           <div className={styles.header_right}>
@@ -154,9 +154,9 @@ const Testimonials = () => {
                 <div className={styles.user_testimonial_header}>
                   <div className={styles.user_testimonial_left}>
                     <div className={styles.user_initial}>
-                      <h2 style={{ marginTop: "0" }}>
+                      <span style={{ marginTop: "0" }}>
                         {testimonial.user.charAt(0).toUpperCase()}
-                      </h2>
+                      </span>
                     </div>
                     <h3 className={styles.user_name}>{testimonial.user}</h3>
                   </div>
