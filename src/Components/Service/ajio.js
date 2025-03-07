@@ -7,7 +7,7 @@ import Footer from "../Footer/Footer";
 import styles from "./Faq.module.css";
 import Accordion from "../Accordion/Accordion";
 
-const Service = () => {
+const Ajio = () => {
   const [token, setToken] = useState(null);  // Initialize state as null to avoid undefined issues
 
   useEffect(() => {
@@ -118,4 +118,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default Ajio;

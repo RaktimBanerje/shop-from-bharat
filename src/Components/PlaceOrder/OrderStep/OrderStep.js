@@ -82,6 +82,8 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
 
   const createOrder = async (newOrder) => {
     try {
+      console.log(orderProducts)
+      return
       setIsLoading(true); // Set loading to true while waiting for the API response
       
       const token = localStorage.getItem('BHARAT_TOKEN'); // Get token from localStorage
@@ -149,8 +151,9 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       return;
     }
 
+    console.log("Here")
     console.log(formData)
-    setOrderProducts(prevOrderProducts => [...prevOrderProducts, formData]);
+    setOrderProducts((prevOrderProducts) => [...prevOrderProducts, formData]);
 
     setFormData({
       product_link: "",

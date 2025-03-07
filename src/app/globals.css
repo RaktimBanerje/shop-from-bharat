@@ -270,6 +270,50 @@ h2) {
   --background-works: #fff8f5;
 } */
 
+
+/* .Services-module__7BRr6W__services_heading h1 {
+  font-size: 3rem !important;
+  font-weight: 500;
+}
+
+.Services-module__7BRr6W__service_desc {
+  font-size: 1.5rem !important;
+  text-align: center;
+}
+
+.Services-module__7BRr6W__services_heading h1 {
+  font-size: 3rem !important;
+  font-weight: 500;
+}
+
+.Services-module__7BRr6W__service_desc {
+  font-size: 1.5rem !important;
+  text-align: center;
+} */
+
+/* .Footer-module__qP5oUa__footer_col h3 {
+  color: white;
+}
+
+.Footer-module__qP5oUa__footer_col ul {
+  padding-left: 0;
+  text-decoration: none !important;
+}
+
+.Footer-module__qP5oUa__footer_col ul a {
+  text-decoration: none !important;
+} */
+/* 
+.Header-module__uO3NCW__label {
+  text-decoration: none !important;
+  text-decoration: none !important;
+} */
+/* 
+.Header-module__uO3NCW__header_main h2 {
+  font-size: 3rem;
+} */
+
+
 body {
   overflow-x: hidden;
 }
@@ -346,45 +390,12 @@ h1 {
 }
 
 
+.header-down-part .header-info{width: 675px; max-width: 100%; position: relative; transform: none; top: 0; left: 0; margin: auto;}
+.header-down-part .header-info button {width: auto; height: auto; min-width: 200px; padding: 10px 25px; border-radius: 36px;}
 
-/* .Services-module__7BRr6W__services_heading h1 {
-  font-size: 3rem !important;
-  font-weight: 500;
-}
-
-.Services-module__7BRr6W__service_desc {
-  font-size: 1.5rem !important;
-  text-align: center;
-}
-
-.Services-module__7BRr6W__services_heading h1 {
-  font-size: 3rem !important;
-  font-weight: 500;
-}
-
-.Services-module__7BRr6W__service_desc {
-  font-size: 1.5rem !important;
-  text-align: center;
-} */
-
-/* .Footer-module__qP5oUa__footer_col h3 {
-  color: white;
-}
-
-.Footer-module__qP5oUa__footer_col ul {
-  padding-left: 0;
-  text-decoration: none !important;
-}
-
-.Footer-module__qP5oUa__footer_col ul a {
-  text-decoration: none !important;
-} */
-/* 
-.Header-module__uO3NCW__label {
-  text-decoration: none !important;
-  text-decoration: none !important;
-} */
-/* 
-.Header-module__uO3NCW__header_main h2 {
-  font-size: 3rem;
-} */
+.header-down-part .Header-module__uO3NCW__header_input {width: auto; gap: 15px 10px; position: relative; z-index: 2;}
+.header-down-part .Header-module__uO3NCW__header_img{position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 1;}

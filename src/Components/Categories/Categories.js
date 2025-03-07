@@ -49,7 +49,7 @@ const Categories = React.forwardRef((props, ref) => {
   return (
     <div className={styles.categories} ref={ref}>
       <div className={styles.categories_container}>
-        <div className={styles.categories_header}>
+        <div className={`${styles.categories_header}`}>
           <h2><b>WHAT CAN YOU ORDER FROM US?</b></h2>
           <Link href="/platforms" passHref legacyBehavior>
             <a className={styles.sites_viewall}>
@@ -60,7 +60,7 @@ const Categories = React.forwardRef((props, ref) => {
         </div>
 
         {/* Render items using slider */}
-        <Slider {...settings} className={styles.slider}>
+        <Slider {...settings} className={`${styles.slider}`}>
           {items.map((item) => (
             <div className={styles.category_item} key={item.id}>
               <div className={styles.category_item_image}>

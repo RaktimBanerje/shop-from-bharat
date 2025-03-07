@@ -42,8 +42,8 @@ const Header = ({ scrollToWYCO }) => {
       <div className={styles.container}>
         <Navbar token={token} />
       </div>
-      <div className={styles.header_content}>
-        <div className={styles.header_info}>
+      <div className={`${styles.header_content} header-down-part`}>
+        <div className={`${styles.header_info} header-info`}>
           <div className={styles.header_main}>
             <h2>
               Shop Products from <span style={{fontWeight: 'bold'}}>INDIA</span>
