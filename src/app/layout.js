@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
 
 
         <div className="floting-btn">
-          <a href="#">Place Order</a>
+          <a href="#" className="p-btn">Place Order</a>
         </div>
 
       </body>

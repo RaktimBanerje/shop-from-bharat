@@ -447,11 +447,13 @@ img{max-width: 100%;}
 .whatsapp-area-main a .whatsapp-area {width: 45px;}
 .whatsapp-area-main a:hover .whatsapp-area {animation: zoom-in-out 0.8s ease infinite;}
 
-
-
 .info-wrap{background: #fe54020d; padding: 50px; border: 1px solid #fe540226;}
 .PlaceOrder-module__6iLslG__modal_overlay {z-index: 999999 !important;}
 
+.floting-btn{position: fixed; top: 50%; right: -50px; transform: translateY(-50%) rotate(90deg);}
+.floting-btn a {padding: 15px 25px; background: #fe5402; color: #fff; font-weight: 600; text-transform: uppercase; text-decoration: none; display: inline-block; border-radius:  0 0 10px 10px !important; letter-spacing: 1px;}
+
+.p-btn{animation: pulse-btn 1.35s infinite; box-shadow: 0 0 0 0 rgba(254, 84, 2, 0.5);}
 
 
 @keyframes zoom-in-out {
@@ -475,6 +477,19 @@ img{max-width: 100%;}
   }
 }
 
+@keyframes pulse-btn {
+	0% {
+	  transform: scale(1); border-radius: 0;
+	}
+	70% {
+	  transform: scale(1);
+	  box-shadow: 0 0 0 20px rgba(254, 84, 2, 0); border-radius: 0;
+	}
+	  100% {
+	  transform: scale(1);
+	  box-shadow: 0 0 0 0 rgba(254, 84, 2, 0); border-radius: 0;
+	}
+  }
 
 
 /* ==============================   RESPONSIVE MIN WIDTH   ================================== */
