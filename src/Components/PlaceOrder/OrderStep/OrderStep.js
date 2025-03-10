@@ -111,11 +111,11 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       if (response) {
         console.log({OrderID: response.data.order.order_number})
 
-        axios.post('https://wajd.co.uk/email.php', {order_number: response.data.order.order_number})
-          .then(response => {})
-          .catch(error => {
-              console.error("Error making order request:", error);
-        });
+        // axios.post('https://wajd.co.uk/email.php', {order_number: response.data.order.order_number})
+        //   .then(response => {})
+        //   .catch(error => {
+        //       console.error("Error making order request:", error);
+        // });
 
         toast.success("Order created successfully", {
           duration: 2000,

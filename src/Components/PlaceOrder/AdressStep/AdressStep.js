@@ -135,8 +135,6 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
           data: payload,
         });
 
-        console.log(response)
-
         if (response.data.status) {
           // alert(response.data.message)
 
@@ -144,12 +142,183 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
           const orderNumber = response.data.order.order_number;
           const message = `New order placed, Order number is ${orderNumber}`;
           const phoneNumber = "919731733771"; // Replace with the desired phone number
+          const productData = localStorage.getItem('productData')
 
-          // Encode the message to be URL-safe
-          const whatsappUrl = `https://api.whatsapp.com/send/?phone=9836739907&type=phone_number&text=${encodeURIComponent(message)}`;
+          console.log(productData);
 
-          // Redirect to WhatsApp
-          window.open(whatsappUrl, '_blank');
+          axios.post('https://wajd.co.uk/email.php', {products: productData, selectedAddressId: selectedAddressId})
+            .then(response => {})
+            .catch(error => {
+                console.error("Error making order request:", error);
+          });
+
+          // // Encode the message to be URL-safe
+          // const whatsappUrl = `https://api.whatsapp.com/send/?phone=9836739907&type=phone_number&text=${encodeURIComponent(message)}`;
+
+                    // Sample data (this would be similar to your PHP data structure)
+          const addressList = [
+            {
+                id: "67149f7887b725ee580ec089",
+                name: "Shriom Tyagi",
+                contact_number: "+91-987654327",
+                email: "amit@example.com",
+                address: "101, Friends Colony Testing",
+                city: "New Delhi",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "673987c575df453424a54d79",
+                name: "Prajjwal Chaudhary",
+                email: "prajjwalchaudhary29898@gmail.com",
+                address: "TEST",
+                city: "Noida",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "6739887775df453424a54d88",
+                name: "Prajjwal Test",
+                contact_number: "09730516411",
+                email: "prajjwalchaudhary29898@gmail.com",
+                address: "TEST",
+                city: "Noida",
+                country: "India",
+                address_type: "Work"
+            },
+            {
+                id: "673b6485eab48181713f8387",
+                name: "Prajjwal",
+                contact_number: "7011029201",
+                email: "prajjwalchaudhary29898@gmail.com",
+                address: "101, Test Colony",
+                city: "Delhi",
+                country: "India",
+                address_type: "Work"
+            },
+            {
+                id: "673b6740eab48181713f838b",
+                name: "Prajjwal Testing",
+                contact_number: "7011029201",
+                email: "prajjwalchaudhary29898@gmail.com",
+                address: "111, Test Colony",
+                city: "Delhi",
+                country: "India",
+                address_type: "Work"
+            },
+            {
+                id: "673f386f1d68ae1af1dc03f0",
+                name: "Shriom Tyagi",
+                contact_number: "7889896521",
+                email: "",
+                address: "Road No U 14",
+                city: "Gurugram",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "67403ebceb7b64526512e469",
+                name: "Tanish Gupta",
+                email: "tanigupt@adobe.com",
+                address: "14A Shivam Enclave",
+                city: "New Delhi",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "67403edeeb7b64526512e46b",
+                name: "Tanish Gupta",
+                email: "tanish16106@iiitd.ac.in",
+                address: "14A Shivam Enclave",
+                city: "New Delhi",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "6741b5f77bf02d3fc820ca64",
+                name: "Testing Address",
+                email: "prajjwalchaudhary29898@gmail.com",
+                address: "Jamuna Vihar",
+                city: "Khatauli",
+                country: "India",
+                address_type: "Other"
+            },
+            {
+                id: "6741e3e6eb7b64526512e473",
+                name: "Tanish Gupta",
+                email: "tanigupt@adobe.com",
+                address: "14A Shivam Enclave",
+                city: "New Delhi",
+                country: "India",
+                address_type: "Home"
+            },
+            {
+                id: "6753f7bd03cddce3380d48df",
+                name: "Shank",
+                email: "shank189@gmail.com",
+                address: "01, Shop",
+                city: "Texas",
+                country: "America",
+                address_type: "Home"
+            }
+          ];
+
+          // Sample customer info
+          const customer = {
+            name: "Shriom",
+            email: "shriomtyagi1998@gmail.com",
+            phone: "7889896521"
+          };
+
+          // Sample order data sent from client
+          const data = {
+            products: productData,
+            selectedAddressId: selectedAddressId
+          };
+
+          // Step 1: Match the selected address
+          let selectedAddress = addressList.find(address => address.id === data.selectedAddressId);
+
+          // Step 2: Decode the products data from JSON string to array
+          let productsData = JSON.parse(data.products);
+
+          // Step 3: Format the products data for WhatsApp
+          let formattedProductsData = "";
+          productsData.forEach(product => {
+            formattedProductsData += `Product Title: ${product['Product Title']}\n`;
+            formattedProductsData += `Product Link: ${product['Product Link']}\n`;
+            formattedProductsData += `Product Size: ${product['Product Size']}\n`;
+            formattedProductsData += `Quantity: ${product['Quantity']}\n`;
+            formattedProductsData += `Colors Available: ${product['Colors Available']}\n`;
+            formattedProductsData += `Customer Comments: ${product['Customer Comments']}\n`;
+            formattedProductsData += `Weight Range: ${product['Weight Range']}\n`;
+            formattedProductsData += `Price (USD): ${product['Price (USD)']}\n\n`;
+          });
+
+          // Step 4: Compile the message content
+          let msg = `Customer Info:\n`;
+          msg += `Name: ${customer.name}\n`;
+          msg += `Email: ${customer.email}\n`;
+          msg += `Phone: ${customer.phone}\n\n`;
+
+          msg += `Shipping Information:\n`;
+          msg += `Name: ${selectedAddress.name}\n`;
+          msg += `Address: ${selectedAddress.address}\n`;
+          msg += `City: ${selectedAddress.city}\n`;
+          msg += `Country: ${selectedAddress.country}\n`;
+          msg += `Address Type: ${selectedAddress.address_type}\n`;
+          msg += `Contact Number: ${selectedAddress.contact_number}\n\n`;
+
+          msg += `Products Ordered:\n`;
+          msg += formattedProductsData;
+
+          // Step 5: Encode the message to be URL-safe
+          const whatsappPhoneNumber = "9836739907"; // Replace with the recipient's phone number
+          const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
+
+          // Step 6: Open WhatsApp with the pre-filled message
+          window.open(whatsappUrl, "_blank");
+
           setCurrentStep("payment");
         }
       } catch (error) {
