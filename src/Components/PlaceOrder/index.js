@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect, useState } from "react";
 // import styles from "../BulkOrder/BulkOrder.module.css"; 
 import styled from "styled-components";

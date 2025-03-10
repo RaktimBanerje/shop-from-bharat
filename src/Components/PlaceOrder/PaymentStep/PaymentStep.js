@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import styles from '../AdressStep/Addresses.module.css'
 import LeftArrow from "../../../assets/leftarrow.svg";

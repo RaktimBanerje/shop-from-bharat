@@ -34,9 +34,9 @@ const CustomHead = () => (
     <meta name="twitter:image" content="https://www.shopfrombharat.com/twitter-image.jpg" />
     <meta name="twitter:url" content="https://www.shopfrombharat.com/" />
 
-    {/* Hreflang Tag (to specify language and region targeting) */}
-    <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
-    <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
+    {/* hreFlang Tag (to specify language and region targeting) */}
+    <link rel="alternate" href="https://www.shopfrombharat.com/" hreFlang="en" />
+    <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreFlang="en-IN" />
 
     {/* Structured Data (Schema.org JSON-LD) */}
     <script type="application/ld+json">

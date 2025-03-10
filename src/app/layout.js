@@ -1,6 +1,14 @@
+"use client"
+
+import { useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
+
+import Image from 'next/image';
+import wpIcon from '../assets/wp-icon.png';
+import wpBg from '../assets/wp-bg.png';
+import PlaceOrderModal from "@/Components/PlaceOrder";
 
 // Load the fonts from Google Fonts
 const geistSans = Geist({
@@ -20,6 +28,22 @@ const geistMono = Geist_Mono({
 // };
 
 export default function RootLayout({ children }) {
+
+  const [isModalVisible, setModalVisible] = useState(false);
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleOpenModal = () => {
+    setModalVisible(true);  // Show modal
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false); // Hide modal
+    // window.location.reload()
+  };
+
   return (
     <html lang="en">
         {/* Title Tag */}
@@ -60,9 +84,9 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="https://www.shopfrombharat.com/twitter-image.jpg" />
         <meta name="twitter:url" content="https://www.shopfrombharat.com/" />
 
-        {/* Hreflang Tag (to specify language and region targeting) */}
-        <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
+        {/* hreFlang Tag (to specify language and region targeting) */}
+        <link rel="alternate" href="https://www.shopfrombharat.com/" hreFlang="en" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreFlang="en-IN" />
 
         {/* Preconnect to external domains for faster connections */}
         <link rel="preconnect" href="https://www.google.com" />
@@ -81,13 +105,13 @@ export default function RootLayout({ children }) {
         {/* Cache-Control headers for faster loading */}
         <meta httpEquiv="Cache-Control" content="max-age=31536000, public" />
 
-        {/* Hreflang Tag (to specify language and region targeting) */}
-        <link rel="alternate" href="https://www.shopfrombharat.com/" hreflang="en" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreflang="en-IN" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/hi/" hreflang="hi-IN" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/us/" hreflang="en-US" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/fr/" hreflang="fr-FR" />
-        <link rel="alternate" href="https://www.shopfrombharat.com/es/" hreflang="es-ES" />
+        {/* hreFlang Tag (to specify language and region targeting) */}
+        <link rel="alternate" href="https://www.shopfrombharat.com/" hreFlang="en" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/in/" hreFlang="en-IN" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/hi/" hreFlang="hi-IN" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/us/" hreFlang="en-US" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/fr/" hreFlang="fr-FR" />
+        <link rel="alternate" href="https://www.shopfrombharat.com/es/" hreFlang="es-ES" />
 
 
 
@@ -97,13 +121,22 @@ export default function RootLayout({ children }) {
 
 
         <div className="floting-btn">
-          <a href="#" className="p-btn">Place Order</a>
+          <a href="#" className="p-btn" onClick={handleOpenModal}>Place Order</a>
         </div>
 
-      </body>
+        <div className="whatsapp-area-main">
+          <a href="https://wa.me/9266767836?text=Hello" target="_blank" rel="noopener noreferrer">
+          <div className="bg-area">
+              <Image src={wpBg} alt="WhatsApp Background" layout="responsive" unoptimized  />
+            </div>
+            <div className="whatsapp-area">
+              <Image src={wpIcon} alt="WhatsApp Icon" layout="responsive" unoptimized  />
+            </div>
+          </a>
+        </div>
 
-
-      
+        <PlaceOrderModal isVisible={isModalVisible} onClose={handleCloseModal} />
+      </body>      
     </html>
   );
 }

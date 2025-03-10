@@ -17,11 +17,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 10rem;
+  padding: 5rem 0;
 }
 
 .accordion_heading {
-  height: 30vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,9 +32,10 @@
   width: 50vw;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.3rem;
   margin: auto;
   min-height: 40vh; /* Add this to set a minimum height */
+  padding-top: 1.5rem;
 }
 
 .accordion_item {
@@ -70,7 +71,7 @@
   background-color: #fff;
   font-size: 0.8rem;
   transition: 0.3s ease-out;
-  line-height: 1.5rem;
+  line-height: 1.5rem; 
 }
 
 .accordion_item:last-child {

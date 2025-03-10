@@ -27,7 +27,7 @@ const Page= () => {
         <div className={styles.items_container}>
 
           <div className="container">
-            <div className="card card-body" style={{backgroundColor: "#f9f3ee", border: "none"}}>
+            <div className="" style={{backgroundColor: "#f9f3ee", border: "none"}}>
               <div className="row d-flex justify-content-center">
                 <img 
                   src="https://banner2.cleanpng.com/20180406/odw/avgbrzk0j.webp" 
@@ -62,7 +62,7 @@ const Page= () => {
                 </div>
               </div>
 
-              <div className="row my-5" style={{backgroundColor: "#f9f3ee"}}>
+              <div className="row main-item-box">
                 <div className="col-md-12">
                   <h2 className="text-center text-dark">Unlock the Future of Innovation with Lorem Ipsum</h2>
                   <p className="text-center text-dark">No worries! Our Personal Shopper will swoop in & take care of it all for you!</p>

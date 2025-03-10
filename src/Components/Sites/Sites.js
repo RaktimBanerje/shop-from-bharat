@@ -1,21 +1,15 @@
 import React from "react";
 import styles from "./Sites.module.css";
-import SearchSvg from "../../assets/Search.svg";
-import FilterSvg from "../../assets/Filter.svg";
 import ArrowSvg from "../../assets/Vector.svg";
 import AmazonSvg from "../../assets/amazon.svg";
-import ZaraSvg from "../../assets/zara.svg";
-import FirstCrySvg from "../../assets/firstcry.svg";
 import FlipkartSvg from "../../assets/flipkart.svg";
 import TataSvg from "../../assets/tata.svg";
-import MeeshoSvg from "../../assets/meesho.svg";
-import ShopSvg from "../../assets/shopclues.svg";
 import NykaaSvg from "../../assets/nykaa.svg";
 import MyntraLogo from '../../assets/myntra.png';
 import LenskartLogo from '../../assets/lenskart.png';
 import BoatLogo from '../../assets/boat.png';
 import KhadiLogo from '../../assets/khadinatural.webp';
-import NeemanLogo from '../../assets/naamans.webp';
+import NeemanLogo from '../../assets/naamans.jpg';
 import HeadsLogo from '../../assets/headsupfortails.jpg';
 import MokobaraLogo from '../../assets/mokobara.jpg';
 import VegNonVegLogo from '../../assets/vegnonveg.png';
@@ -101,7 +95,7 @@ const Sites = () => {
             </div> */}
             <Link href="/platforms" className={styles.sites_viewall}>
               <div className={styles.sites_view}>View All</div>
-              <img className={styles.arrowIcon} src={ArrowSvg} alt="Arrow icon" />
+              <Image className={styles.arrowIcon} src={ArrowSvg} width={20} height={20} />
             </Link>
 
           </div>

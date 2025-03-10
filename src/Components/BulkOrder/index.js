@@ -1,14 +1,13 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import styles from "./BulkOrder.module.css";
 import styled from "styled-components";
 import { Autocomplete, TextField } from "@mui/material";
-import WhatsAppSVG from "../../assets/whatsapp.svg";
-import axios from "axios";
-import apiServiceHandler from "../../service/apiService";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
 import toast from "react-hot-toast";
+import WhatsAppSVG from "../../assets/whatsapp.svg";
 import Spinner from "../Spinner/Spinner";
-import Image from 'next/image'; // Import next/image for optimized image loading
 
 const categories = [
   { label: "Perfume", id: 1 },
@@ -41,8 +40,9 @@ const CssTextField = styled(TextField)(`
 `);
 
 const BulkOrder = ({ isVisible, onClose }) => {
-  const queryClient = useQueryClient();
+  const [orderPlaced, setOrderPlaced] = useState(false);
   const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     contact_number: "",
@@ -60,47 +60,61 @@ const BulkOrder = ({ isVisible, onClose }) => {
     }));
   };
 
-  // Fetch countries for Autocomplete
-  const fetchCountries = async () => {
-    try {
-      const response = await axios.get("https://countriesnow.space/api/v0.1/countries");
-      const countriesData = response.data.data.map((country) => ({
-        label: country.country,
-        cities: country.cities,
-      }));
-      setCountries(countriesData);
-    } catch (error) {
-      console.error("Error fetching countries:", error);
-    }
-  };
-
+  // Fetch countries on mount
   useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        const response = await fetch("https://countriesnow.space/api/v0.1/countries");
+        const data = await response.json();
+        const countryList = data.data.map((country) => ({
+          label: country.country,
+          cities: country.cities,
+        }));
+        setCountries(countryList);
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+
     fetchCountries();
   }, []);
 
   const isFormValid = () => {
     const { name, contact_number, category, country, quantity } = formData;
-    return name !== "" && contact_number !== "" && category !== "" && country !== "" && quantity !== "";
+    return name && contact_number && category && country && quantity;
   };
 
-  const createBulkOrder = async () => {
-    const updatedFormData = { ...formData, country: formData.country.label };
-    const response = await apiServiceHandler('POST', 'api/bulk-order/create', updatedFormData);
-    return response;
-  };
-
-  const { mutate, isLoading } = useMutation({
-    mutationFn: createBulkOrder,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["bulkOrder"] });
-      toast.success("Bulk Order Successfully Placed", {
-        duration: 4000,
+  const handleSubmit = async () => {
+    if (!isFormValid()) {
+      toast.error("Please fill all required fields", {
+        duration: 2000,
         position: "top-center",
-        iconTheme: {
-          primary: "#15803d",
-          secondary: "#fff",
-        },
       });
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const updatedFormData = { ...formData, country: formData.country.label };
+      
+      let msg = ""
+
+      msg = `Name: ${updatedFormData.name} \n`;
+      msg+= `Phone: ${updatedFormData.contact_number} \n`;
+      msg+= `Category: ${updatedFormData.category} \n`;
+      msg+= `Category Description: ${updatedFormData.category_description} \n`;
+      msg+= `Quantity: ${updatedFormData.quantity} \n`;
+      msg+= `Country: ${updatedFormData.country} \n`;
+
+      const whatsappPhoneNumber = "9836739907"; // Replace with the recipient's phone number
+      const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
+
+      // Step 6: Open WhatsApp with the pre-filled message
+      
+      window.open(whatsappUrl, "_blank");
+
+      setOrderPlaced(true);
+    
       setFormData({
         name: "",
         contact_number: "",
@@ -109,20 +123,12 @@ const BulkOrder = ({ isVisible, onClose }) => {
         category_description: "",
         quantity: "",
       });
-      setTimeout(() => {
-        onClose();
-      }, 1500);
-    },
-  });
 
-  const onSubmit = () => {
-    if (isFormValid()) {
-      mutate();
-    } else {
-      toast.error("Please fill all the required fields", {
-        duration: 2000,
-        position: "top-center",
-      });
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      toast.error("Server error. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -131,106 +137,111 @@ const BulkOrder = ({ isVisible, onClose }) => {
   return (
     <div className={styles.modal_overlay}>
       <div className={styles.modal}>
-        <div className={styles.modal_header}>
-          <h2>Enter details for bulk order</h2>
-          <button onClick={onClose}>X</button>
-        </div>
+      {orderPlaced ? (
+          <div className="text-center">
+            <div className={styles.modal_header} style={{ display: "flex", justifyContent: "space-between" }}>
+              <button onClick={onClose} style={{ height: 40, width: 40, borderRadius: "100%" }}>X</button>
+            </div>
+            <div className="container mt-5">
+              <div className="text-center">
+                <img src="https://i.pinimg.com/564x/e3/0d/b7/e30db7466f1c3f7eaa110351e400bb79.jpg" alt="tick" className="mb-3" style={{ width: '100px', height: '100px' }} />
+                <h4 className="text-success">Thank You!</h4>
+                <p className="text-dark">Your order has been successfully placed. We appreciate your business and will process your order shortly.</p>
+                <hr />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+          <div className={styles.modal_header}>
+            <h4>Enter details for bulk order</h4>
+            <button onClick={onClose}>X</button>
+          </div>
 
-        <div className={styles.modal_inputs}>
-          <CssTextField
-            className={styles.name_field}
-            value={formData.name}
-            onChange={handleChange}
-            name="name"
-            label="What should we call you?"
-            required
-          />
-          <div className={styles.form_zip_city}>
+          <div className={styles.modal_inputs}>
             <CssTextField
-              className={styles.input_field}
-              label="Phone Number"
-              value={formData.contact_number}
+              className={styles.name_field}
+              value={formData.name}
               onChange={handleChange}
-              name="contact_number"
+              name="name"
+              label="What should we call you?"
               required
             />
+            <div className={styles.form_zip_city}>
+              <CssTextField
+                className={styles.input_field}
+                label="Phone Number"
+                value={formData.contact_number}
+                onChange={handleChange}
+                name="contact_number"
+                required
+              />
+              <CssTextField
+                className={styles.input_field}
+                label="Category"
+                value={formData.category}
+                onChange={handleChange}
+                name="category"
+                required
+              />
+            </div>
+            <div className={styles.form_zip_city}>
+              <Autocomplete
+                className={styles.input_field}
+                disablePortal
+                id="country-select"
+                options={countries}
+                getOptionLabel={(option) => option.label || ""}
+                value={formData.country}
+                onChange={(event, value) => {
+                  setFormData({ ...formData, country: value });
+                }}
+                renderInput={(params) => (
+                  <CssTextField {...params} label="Country" variant="outlined" required />
+                )}
+              />
+              <CssTextField
+                className={styles.input_field}
+                label="Quantity"
+                name="quantity"
+                value={formData.quantity}
+                onChange={handleChange}
+                required
+              />
+            </div>
             <CssTextField
-              className={styles.input_field}
-              label="Category"
-              value={formData.category}
+              sx={{ width: "100%" }}
+              multiline
+              rows={2}
+              label="Category Description (Optional)"
+              value={formData.category_description}
               onChange={handleChange}
-              name="category"
-              required
+              name="category_description"
             />
           </div>
-          <div className={styles.form_zip_city}>
-            <Autocomplete
-              className={styles.input_field}
-              disablePortal
-              id="country-select"
-              options={countries}
-              getOptionLabel={(option) => option.label || ""}
-              value={formData.country}
-              onChange={(event, value) => {
-                setFormData({ ...formData, country: value });
-              }}
-              renderInput={(params) => (
-                <CssTextField
-                  {...params}
-                  label="Country"
-                  variant="outlined"
-                  autoComplete="off"
-                  required
-                />
+
+          <div className={styles.modal_actions}>
+            <button className={styles.submitBtn} onClick={handleSubmit} disabled={loading}>
+              <span className={styles.btnLabel}>{loading ? "Processing Order" : "SUBMIT DETAILS"}</span>
+              {loading && (
+                <span className={styles.spinner}>
+                  <Spinner />
+                </span>
               )}
-            />
-            <CssTextField
-              className={styles.input_field}
-              label="Quantity"
-              name="quantity"
-              value={formData.quantity}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <CssTextField
-            sx={{ width: "100%" }}
-            multiline
-            rows={2}
-            label="Category Description (Optional)"
-            value={formData.category_description}
-            onChange={handleChange}
-            name="category_description"
-          />
-        </div>
-
-        <div className={styles.modal_actions}>
-          <button className={styles.submitBtn} onClick={onSubmit} disabled={isLoading}>
-            <span className={styles.btnLabel}>
-              {isLoading ? "Processing Order" : "SUBMIT DETAILS"}
-            </span>
-            {isLoading && (
-              <span className={styles.spinner}>
-                <Spinner />
-              </span>
-            )}
-          </button>
-          <a
-            href="https://wa.me/9197317 33771"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button 
-              type="button" // Ensures it's not treated as a submit button
-              className={styles.directBtn}
-              onClick={() => window.open("https://wa.me/9197317 33771", "_blank")} // Direct link to WhatsApp
-              aria-label="Contact us via WhatsApp" // Accessibility enhancement
-            >
-              <Image src={WhatsAppSVG} alt="WhatsApp" width={25} height={25} /> 
-              <span>DIRECT CONTACT</span>
             </button>
-          </a>
-        </div>
+            <a href="https://wa.me/919731733771" target="_blank" rel="noopener noreferrer">
+              <button
+                type="button"
+                className={styles.directBtn}
+                aria-label="Contact us via WhatsApp"
+              >
+                <Image src={WhatsAppSVG} alt="WhatsApp" width={25} height={25} />
+                <span>DIRECT CONTACT</span>
+              </button>
+            </a>
+          </div>
+        </>
+        )}
       </div>
     </div>
   );

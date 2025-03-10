@@ -11,6 +11,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link"; // Next.js Link component
 // import BulkOrder from "../BulkOrder";
 import ShopBharatLogo from "../../assets/shopBharat.svg";
+import BulkOrder from "../BulkOrder";
 
 const Navbar = ({ token }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,9 +68,9 @@ const Navbar = ({ token }) => {
               Shopping Sites
             </Link>
           </li>
-          {/* <li onClick={toggleModal} className={styles.bulk_order}>
+          <li onClick={toggleModal} className={styles.bulk_order}>
             <span>Bulk Order</span>
-          </li> */}
+          </li>
           <li className={styles.about_us}>
             <Link href="/about-us" className={styles.label}>
               About Us
@@ -122,7 +123,7 @@ const Navbar = ({ token }) => {
           )}
         </ul>
       </nav>
-      {/* <BulkOrder isVisible={isModalOpen} onClose={toggleModal} /> */}
+      <BulkOrder isVisible={isModalOpen} onClose={toggleModal} />
     </>
   );
 };

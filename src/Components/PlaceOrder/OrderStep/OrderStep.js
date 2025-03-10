@@ -1,3 +1,5 @@
+"use client"
+
 // OrderStep.jsx
 import React, { useEffect, useState } from "react";
 import { Autocomplete } from "@mui/material";
@@ -181,7 +183,7 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
   };
 
   const populateForm = (idx) => {
-    const product = products.find((product) => idx === product.id);
+    const product = orderProducts.find((product) => idx === product.id);
     if (product) {
       setFormData(product); // Populate form with selected product details
     }
@@ -200,9 +202,9 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
         <button onClick={handleCloseModal}>X</button>
       </div>
 
-      {products.length > 0 && (
+      {orderProducts.length > 0 && (
         <div className={styles.all_orders}>
-          {products.map((product) => (
+          {orderProducts.map((product) => (
             <div
               key={product.id}
               className={styles.order_item}

@@ -74,6 +74,28 @@ const Platform = () => {
     window.scrollTo(0, 0);
   }, []);
 
+    useEffect(() => {
+      // Check if window is defined to avoid SSR issues with localStorage
+      if (typeof window !== "undefined") {
+        // Set the token (if you need to keep the logic from your example)
+        const token = localStorage.getItem('BHARAT_TOKEN');
+
+        // Your existing code for adjusting the '.fullwidth' element's position
+        const onloadmethod = () => {
+          const fullwidth = document.querySelector('.fullwidth').offsetWidth;
+          document.querySelector('.fullwidth').style.left = `-${fullwidth / 2}px`;
+        };
+  
+        // Call onloadmethod on page load
+        window.onload = onloadmethod;
+  
+        // If you need to clean up (e.g., for when component unmounts)
+        return () => {
+          window.onload = null; // Clean up the event handler if needed
+        };
+      }
+    }, []);
+
   return (
     <div className={styles.platform}>
       <div className={styles.platform_container}>

@@ -18,7 +18,7 @@ const Mensfashion = '/assets/images/Mensfashion.png';
 const Shopping = '/assets/images/Shopping.png';
 const VehiclesParts = '/assets/images/VehiclesParts.png';
 const WomenFashion = '/assets/images/WomenFashion.png';
-const ArrowSvg = '/assets/images/Vector.svg';
+const ArrowSvg = '/assets/Vector.svg';
 
 // Items list remains the same
 const items = [
@@ -60,7 +60,7 @@ const Categories = React.forwardRef((props, ref) => {
           <Link href="/platforms" passHref legacyBehavior>
             <a className={styles.sites_viewall}>
               <div className={styles.sites_view}>View All</div>
-              <Image className={styles.arrowIcon} src={ArrowSvg} alt="Arrow" width={20} height={20} />
+              <Image className={styles.arrowIcon} src={ArrowSvg} width={20} height={20} />
             </a>
           </Link>
         </div>

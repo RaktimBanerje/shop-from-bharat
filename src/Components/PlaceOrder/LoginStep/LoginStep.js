@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from "react";
 import styles from "./LoginModal.module.css";
 import GoogleSvg from "../../../assets/google.svg";
