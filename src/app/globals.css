@@ -517,6 +517,8 @@ img{max-width: 100%;}
 .main-item-box{padding: 3rem 0 6.25rem;}
 .MuiPopper-root ul {color: #000 !important;}
 
+.PlaceOrder_modal_container__1_1vU { position: relative; z-index: 9999; }
+
 @keyframes zoom-in-out {
   0% {
     width: 45px;
