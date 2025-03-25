@@ -6,35 +6,43 @@ import styles from './Categories.module.css';
 
 // Static assets from public folder
 const Accessories = '/assets/images/Accessories.png';
-const ChildStore = '/assets/images/ChildStore.png';
 const Electronics = '/assets/images/Electronics.png';
 const EnvironmentFriendly = '/assets/images/EnvironmentFriendly.png';
+const HealthBeauty = '/assets/images/HealthBeauty.png';
 const Jewels = '/assets/images/Jewels.png';
 const Kitchen = '/assets/images/Kitchen.png';
+const LightsFurniture = '/assets/images/LightsFurniture.png';
 const Luxury = '/assets/images/Luxury.png';
-const Maracas = '/assets/images/Maracas.png';
 const Market = '/assets/images/Market.png';
 const Mensfashion = '/assets/images/Mensfashion.png';
-const Shopping = '/assets/images/Shopping.png';
-const VehiclesParts = '/assets/images/VehiclesParts.png';
+const MucialInstrument = '/assets/images/MucialInstrument.png';
+const PetSupplies = '/assets/images/PetSupplies.png';
+const Science = '/assets/images/Science.png';
+const Toys = '/assets/images/Toys.png';
+const Vehicle = '/assets/images/Vehicle.png';
 const WomenFashion = '/assets/images/WomenFashion.png';
+
+
 const ArrowSvg = '/assets/Vector.svg';
 
 // Items list remains the same
 const items = [
   { id: 1, name: "Accessories", itemSrc: Accessories },
-  { id: 2, name: "Child Store", itemSrc: ChildStore },
-  { id: 3, name: "Electronics", itemSrc: Electronics },
-  { id: 4, name: "Environment Friendly", itemSrc: EnvironmentFriendly },
+  { id: 2, name: "Child Store", itemSrc: Electronics },
+  { id: 3, name: "Environment Friendly", itemSrc: EnvironmentFriendly },
+  { id: 4, name: "Health Beauty", itemSrc: HealthBeauty },
   { id: 5, name: "Jewels", itemSrc: Jewels },
   { id: 6, name: "Kitchen", itemSrc: Kitchen },
-  { id: 7, name: "Luxury", itemSrc: Luxury },
-  { id: 8, name: "Maracas", itemSrc: Maracas },
-  { id: 9, name: "CHILDREN STORE", itemSrc: Market },
+  { id: 7, name: "Lights Furniture", itemSrc: LightsFurniture },
+  { id: 8, name: "Luxury", itemSrc: Luxury },
+  { id: 9, name: "Market", itemSrc: Market },
   { id: 10, name: "Mens Fashion", itemSrc: Mensfashion },
-  { id: 11, name: "Shopping", itemSrc: Shopping },
-  { id: 12, name: "Vehicles Parts", itemSrc: VehiclesParts },
-  { id: 13, name: "Women Fashion", itemSrc: WomenFashion },
+  { id: 11, name: "Mucial Instrument", itemSrc: MucialInstrument },
+  { id: 12, name: "Pet Supplies", itemSrc: PetSupplies },
+  { id: 13, name: "Science", itemSrc: Science },
+  { id: 14, name: "Toys", itemSrc: Toys },
+  { id: 15, name: "Vehicle", itemSrc: Vehicle },
+  { id: 16, name: "Women Fashion", itemSrc: WomenFashion },
 ];
 
 const Categories = React.forwardRef((props, ref) => {

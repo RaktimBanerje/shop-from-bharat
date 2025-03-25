@@ -148,14 +148,14 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
 
           console.log(productData);
 
-          axios.post('https://wajd.co.uk/email.php', {products: productData, selectedAddressId: selectedAddressId})
+          axios.post('https://researchindiatoday.com/email.php', {products: productData, selectedAddressId: selectedAddressId})
             .then(response => {})
             .catch(error => {
                 console.error("Error making order request:", error);
           });
 
           // // Encode the message to be URL-safe
-          // const whatsappUrl = `https://api.whatsapp.com/send/?phone=9836739907&type=phone_number&text=${encodeURIComponent(message)}`;
+          // const whatsappUrl = `https://api.whatsapp.com/send/?phone=8050063435&type=phone_number&text=${encodeURIComponent(message)}`;
 
                     // Sample data (this would be similar to your PHP data structure)
           const addressList = [
@@ -315,7 +315,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
           msg += formattedProductsData;
 
           // Step 5: Encode the message to be URL-safe
-          const whatsappPhoneNumber = "9836739907"; // Replace with the recipient's phone number
+          const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
           const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
 
           // Step 6: Open WhatsApp with the pre-filled message

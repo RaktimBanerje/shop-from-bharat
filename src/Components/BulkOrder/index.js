@@ -106,7 +106,7 @@ const BulkOrder = ({ isVisible, onClose }) => {
       msg+= `Quantity: ${updatedFormData.quantity} \n`;
       msg+= `Country: ${updatedFormData.country} \n`;
 
-      const whatsappPhoneNumber = "9836739907"; // Replace with the recipient's phone number
+      const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
       const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
 
       // Step 6: Open WhatsApp with the pre-filled message

@@ -15,6 +15,7 @@ import Partners from "../Components/Partners/Partners";
 import FloatingIcon from "../Components/FloatingIcon/FloatingIcon";
 import toast from "react-hot-toast"; // Assuming you still use this
 import Image from 'next/image';
+const SFB = '/assets/images/SFB.png';
 
 export default function HomePage() {
   const faqRef = useRef(null); // Create a ref for the FAQ section
@@ -75,10 +76,13 @@ export default function HomePage() {
                 </div>
 
                 <div className="col-md-5 hm-abt-img">
-                <img 
-                  src="https://static.vecteezy.com/system/resources/previews/033/296/649/large_2x/shopping-cart-overflowing-with-golden-gift-boxes-on-a-solid-orange-background-free-photo.jpg" 
-                  width={600}
-                  alt="Banner Image" 
+                <Image
+                  src={SFB}
+                  alt="Description of the image"
+                  layout="intrinsic" // This ensures the aspect ratio is maintained
+                  width={800} // Specify an appropriate width
+                  height={600} // Specify an appropriate height
+                  objectFit="contain" // Ensures the image fits inside the container while maintaining its aspect ratio
                 />
                 </div>
               </div>
