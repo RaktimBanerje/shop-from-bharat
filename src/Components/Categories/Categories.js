@@ -65,7 +65,7 @@ const Categories = React.forwardRef((props, ref) => {
       <div className={styles.categories_container}>
         <div className={`${styles.categories_header}`}>
           <h2>WHAT CAN YOU ORDER FROM US?</h2>
-          <Link href="/platforms" passHref legacyBehavior>
+          <Link href="/shopping-sites-in-india" passHref legacyBehavior>
             <a className={styles.sites_viewall}>
               <div className={styles.sites_view}>View All</div>
               <Image className={styles.arrowIcon} src={ArrowSvg} width={20} height={20} />

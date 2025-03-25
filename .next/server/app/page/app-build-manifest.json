@@ -1,0 +1,31 @@
+{
+  "pages": {
+    "/page": [
+      "static/chunks/_a91c21._.js",
+      "static/chunks/src_app_favicon_ico_mjs_ddfdf0._.js",
+      "static/chunks/[root of the server]__71564f._.js",
+      "static/chunks/node_modules_next_3c063a._.js",
+      "static/chunks/node_modules_axios_lib_c4c49c._.js",
+      "static/chunks/node_modules_40027f._.js",
+      "static/chunks/node_modules_@mui_material_710be3._.js",
+      "static/chunks/node_modules_@mui_system_esm_6c62d8._.js",
+      "static/chunks/node_modules_@popperjs_core_lib_b9b8df._.js",
+      "static/chunks/node_modules_react-phone-input-2_lib_lib_5ea9b1.js",
+      "static/chunks/node_modules_f62ac8._.js",
+      "static/chunks/[root of the server]__466e1e._.css",
+      "static/chunks/src_app_layout_61af54.js",
+      "static/chunks/src_3992ed._.js",
+      "static/chunks/node_modules_b13f2f._.js",
+      "static/chunks/_66a76f._.css",
+      "static/chunks/src_app_page_1ff562.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
+      "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
+      "static/chunks/node_modules_next_dist_client_523921._.js",
+      "static/chunks/node_modules_next_dist_4bb10e._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636a._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_d0a96d._.js",
+      "static/chunks/_e69f0d._.js",
+      "static/chunks/_d95469._.js"
+    ]
+  }
+}

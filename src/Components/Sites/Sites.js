@@ -93,7 +93,7 @@ const Sites = () => {
                 className={styles.filterIcon}
               />
             </div> */}
-            <Link href="/platforms" className={styles.sites_viewall}>
+            <Link href="/shopping-sites-in-india" className={styles.sites_viewall}>
               <div className={styles.sites_view}>View All</div>
               <Image className={styles.arrowIcon} src={ArrowSvg} width={20} height={20} />
             </Link>

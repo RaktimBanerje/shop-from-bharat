@@ -1,6 +1,6 @@
 import axios from 'axios';
 // const baseUrl = process.env.REACT_APP_BASE_URL;
-const baseUrl = "https://13.210.82.75";
+const baseUrl = "https://3.107.179.121";
 async function apiServiceHandler(method, endpoint, payload) {
   const token = localStorage.getItem('BHARAT_TOKEN');
   try {

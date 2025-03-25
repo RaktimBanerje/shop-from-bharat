@@ -1,0 +1,152 @@
+/* [project]/src/Components/BulkOrder/BulkOrder.module.css [app-client] (css) */
+.BulkOrder-module__rOtfeW__modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.BulkOrder-module__rOtfeW__modal {
+  background-color: var(--background-bulk);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #0000001a;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.BulkOrder-module__rOtfeW__modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.BulkOrder-module__rOtfeW__modal_header h2 {
+  color: #464646;
+  size: 36px;
+  font-weight: 500;
+  line-height: 54px;
+}
+
+.BulkOrder-module__rOtfeW__modal_header button {
+  border: none;
+  cursor: pointer;
+  background-color: #f9eee9;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.BulkOrder-module__rOtfeW__modal_header button:hover {
+  background-color: #f1ac8e;
+}
+
+.BulkOrder-module__rOtfeW__submitBtn {
+  display: flex;
+  gap: .8rem;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: #ff4d4d;
+}
+
+.BulkOrder-module__rOtfeW__submitBtn .BulkOrder-module__rOtfeW__btnLabel {
+  color: #fff;
+}
+
+.BulkOrder-module__rOtfeW__submitBtn .BulkOrder-module__rOtfeW__spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BulkOrder-module__rOtfeW__directBtn {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 20px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.BulkOrder-module__rOtfeW__modal_inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.BulkOrder-module__rOtfeW__name_field {
+  width: 100%;
+}
+
+.BulkOrder-module__rOtfeW__input_field {
+  width: 50%;
+}
+
+.BulkOrder-module__rOtfeW__form_zip_city {
+  display: flex;
+  gap: 2rem;
+}
+
+.BulkOrder-module__rOtfeW__modal_actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.BulkOrder-module__rOtfeW__modal_login {
+  background-color: var(--background-bulk);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #0000001a;
+  width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.BulkOrder-module__rOtfeW__modal_container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.BulkOrder-module__rOtfeW__proceedBtn {
+  width: 100%;
+  background-color: var(--theme);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.BulkOrder-module__rOtfeW__modal_actions a {
+  text-decoration: none;
+  display: inline-block;
+  width: 50%;
+}
+
+/*# sourceMappingURL=src_Components_BulkOrder_BulkOrder_module_b52d8e.css.map*/

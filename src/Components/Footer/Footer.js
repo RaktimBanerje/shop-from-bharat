@@ -84,7 +84,7 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
               <input className={styles.input} type="text" placeholder="Enter your Email" />
               <button className={styles.button}>Subscribe</button>
             </div>
-            {/* <ul className={styles.socials_list}>
+            <ul className={styles.socials_list}>
               <a href="https://x.com/SHANKY7771" target="_blank" rel="noopener noreferrer">
                 <li className={styles.social_media}>
                   <Image src={TwitterSvg} alt="Twitter" width={20} height={20} />
@@ -105,7 +105,7 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
                   <Image src={FaceBookSvg} alt="Facebook" width={20} height={20} />
                 </li>
               </a>
-            </ul> */}
+            </ul>
           </div>
         </div>
         {/* <div className={styles.footer_copyright} style={{zIndex: 1111}}>
