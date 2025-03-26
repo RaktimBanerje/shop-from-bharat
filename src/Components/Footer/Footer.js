@@ -29,7 +29,7 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
                 </Link>
               </li>
               <li>
-                <Link href="/how-it-works" legacyBehavior>
+                <Link href="/online-shopping-india" legacyBehavior>
                   <a>How it Works ?</a>
                 </Link>
               </li>
@@ -38,10 +38,14 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
                   <a>Place Order</a>
                 </Link>
               </li> */}
-              <li>Contact Us</li>
-              <li>
-                <Link href="/#partners" onClick={scrollToPartners} legacyBehavior>
-                  <a>Delivery Partners</a>
+              <li style={{ minWidth: "120px" }}>
+                <Link href="/prohibited-items" legacyBehavior>
+                  <a>Prohibited Items</a>
+                </Link>
+              </li>
+              <li style={{ minWidth: "120px" }}>
+                <Link href="/service" legacyBehavior>
+                  <a>Service</a>
                 </Link>
               </li>
             </ul>
@@ -57,16 +61,6 @@ const Footer = ({ scrollToFAQ, scrollToPartners }) => {
               <li style={{ minWidth: "120px" }}>
                 <Link href="/about-us" legacyBehavior>
                   <a>About Us</a>
-                </Link>
-              </li>
-              <li style={{ minWidth: "120px" }}>
-                <Link href="/prohibited-items" legacyBehavior>
-                  <a>Prohibited Items</a>
-                </Link>
-              </li>
-              <li style={{ minWidth: "120px" }}>
-                <Link href="/service" legacyBehavior>
-                  <a>Service</a>
                 </Link>
               </li>
             </ul>
