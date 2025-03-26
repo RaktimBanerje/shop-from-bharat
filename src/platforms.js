@@ -620,10 +620,4 @@ export const platforms = [
     categories: ["PET SUPPLIES","LUXURY"],
     imgSrc: HeadsLogo,
   },
-  {
-    name: "Heads Up For Tails",
-    link: "/service/heads-up-for-tails",
-    categories: ["PET SUPPLIES","LUXURY"],
-    imgSrc: HeadsLogo,
-  },  
 ];

@@ -24,7 +24,7 @@ const Blog = () => {
         <div className={styles.line}></div>
 
         <section
-          className="bg-dark text-white text-center py-5 d-flex align-items-center fullwidth"
+          className="bg-dark text-white text-center py-2 d-flex align-items-center fullwidth"
           style={{
             backgroundImage: "url('https://via.placeholder.com/1920x600')",
             backgroundSize: 'cover',
@@ -35,8 +35,7 @@ const Blog = () => {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12">
-                <h1 className="display-4 fw-bold">Welcome to Our Inner Page</h1>
-                <p className="lead text-light">Explore the best of our content, products, and services.</p>
+                <h1 className="display-4 fw-bold">Blog</h1>
               </div>
             </div>
           </div>

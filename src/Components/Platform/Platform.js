@@ -11,6 +11,7 @@ import Image from "next/image"; // For Next.js Image Optimization
 import PlaceOrderModal from "../PlaceOrder";
 import OnlineShoppingIcon from "../../assets/online-shopping-sale.png";
 import Link from "next/link"; // Using Next.js Link component
+import Footer from "../Footer/Footer";
 
 const Platform = () => {
   const filters = [
@@ -114,8 +115,7 @@ const Platform = () => {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12">
-                <h1 className="display-4 fw-bold">Welcome to Our Inner Page</h1>
-                <p className="lead text-light">Explore the best of our content, products, and services.</p>
+                <h1 className="display-4 fw-bold">Shopping Sites</h1>
               </div>
             </div>
           </div>
@@ -195,6 +195,10 @@ const Platform = () => {
           </div>
         </div>
       </div>
+
+        <div className={styles.items_container}>
+          <Footer />
+        </div>
     </div>
   );
 };

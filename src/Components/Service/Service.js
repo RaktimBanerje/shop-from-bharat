@@ -35,8 +35,7 @@ const Service = () => {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12">
-                <h1 className="display-4 fw-bold">Welcome to Our Inner Page</h1>
-                <p className="lead text-light">Explore the best of our content, products, and services.</p>
+                <h1 className="display-4 fw-bold">Service</h1>
               </div>
             </div>
           </div>
