@@ -1,7 +1,7 @@
 // src/app/page.js
 'use client'; // Marking this file as a client component
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation"; // Next.js hook for pathname.
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS globally
 import Header from "../Components/Header/Header"; // Adjust path for Next.js
@@ -18,6 +18,7 @@ import Image from 'next/image';
 const SFB = '/assets/images/SFB.png';
 
 export default function HomePage() {
+
   const faqRef = useRef(null); // Create a ref for the FAQ section
   const partnersRef = useRef(null);
   const wycoRef = useRef(null);

@@ -184,25 +184,11 @@ const Platform = () => {
             </div>
             <div className={styles.platforms_list_container}>
               <div className={styles.platforms_list}>
-              {sites.map((platform, index) => (
-                  <Link
-                  href={
-                    platform.redirect_to === 'main_site'
-                      ? platform.main_website_link
-                      : `/shopping-sites-in-india/${platform.slug}`
-                  }
-                  {...(platform.redirect_to === 'main_site'
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                >
+                {filteredPlatforms.map((platform, index) => (
+                  <Link href={platform.link} key={index}>
                     <div className={styles.platform_item}>
                       <div className={styles.platform_img}>
-                        <Image
-                          src={`http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055/assets/${platform.logo}`}
-                          alt={platform.name}
-                          width={60} // or whatever dimensions suit your design
-                          height={60}
-                        />
+                        <Image src={platform.imgSrc} alt={platform.name} />
                       </div>
                       <div className={styles.platform_link}>
                         <p>{platform.name}</p>
