@@ -105,7 +105,7 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       // Make the POST request with the token in the Authorization header
       const response = await axios({
         method: 'post',
-        url: "https://3.107.179.121/api/order/create",
+        url: "https://shopfrombharat.apsgroup.in/api/order/create",
         headers: { 'Authorization': 'Bearer ' + token },
         data: newOrder
       });

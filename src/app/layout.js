@@ -113,9 +113,6 @@ export default function RootLayout({ children }) {
         <link rel="alternate" href="https://www.shopfrombharat.com/fr/" hreFlang="fr-FR" />
         <link rel="alternate" href="https://www.shopfrombharat.com/es/" hreFlang="es-ES" />
 
-
-
-
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
 

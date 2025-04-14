@@ -11,8 +11,9 @@ import WhatsAppSVG from "../../../assets/whatsapp.svg";
 import { CssTextField } from "../index";
 import Image from "next/image";  // Import Image from next/image
 import styles from './Addresses.module.css'
+import { load } from '@cashfreepayments/cashfree-js';
 
-const baseUrl = "https://3.107.179.121";  // Your API base URL
+const baseUrl = "https://shopfrombharat.apsgroup.in";  // Your API base URL
 
 const AddressStep = ({ onClose, setCurrentStep }) => {
   const [addressForm, setAddressForm] = useState(false);
@@ -119,6 +120,41 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
   };
 
   const onSubmit = async () => {
+
+    let cashfree;
+    var initializeSDK = async function () {          
+        cashfree = await load({
+            mode: "sandbox"
+        });
+    };
+    initializeSDK();
+
+    const doPayment = async (session_id) => {
+      let checkoutOptions = {
+          paymentSessionId: session_id,
+          redirectTarget: "_modal",
+      };
+      cashfree.checkout(checkoutOptions).then((result) => {
+          if(result.error){
+              // This will be true whenever user clicks on close icon inside the modal or any error happens during the payment
+              console.log("User has closed the popup or there is some payment error, Check for Payment Status");
+              console.log(result.error);
+          }
+          if(result.redirect){
+              // This will be true when the payment redirection page couldnt be opened in the same window
+              // This is an exceptional case only when the page is opened inside an inAppBrowser
+              // In this case the customer will be redirected to return url once payment is completed
+              console.log("Payment will be redirected");
+          }
+          if(result.paymentDetails){
+              // This will be called whenever the payment is completed irrespective of transaction status
+              console.log("Payment has been completed, Check for Payment Status");
+              console.log(result.paymentDetails.paymentMessage);
+          }
+      });
+  };
+
+
     const token = localStorage.getItem("BHARAT_TOKEN");
     if (selectedAddressId) {
       const payload = {
@@ -140,189 +176,219 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
         if (response.data.status) {
           // alert(response.data.message)
 
-          // Construct the message and WhatsApp URL
-          const orderNumber = response.data.order.order_number;
-          const message = `New order placed, Order number is ${orderNumber}`;
-          const phoneNumber = "919731733771"; // Replace with the desired phone number
-          const productData = localStorage.getItem('productData')
-
-          console.log(productData);
-
-          axios.post('https://researchindiatoday.com/email.php', {products: productData, selectedAddressId: selectedAddressId})
-            .then(response => {})
-            .catch(error => {
-                console.error("Error making order request:", error);
-          });
-
-          // // Encode the message to be URL-safe
-          // const whatsappUrl = `https://api.whatsapp.com/send/?phone=8050063435&type=phone_number&text=${encodeURIComponent(message)}`;
-
-                    // Sample data (this would be similar to your PHP data structure)
-          const addressList = [
-            {
-                id: "67149f7887b725ee580ec089",
-                name: "Shriom Tyagi",
-                contact_number: "+91-987654327",
-                email: "amit@example.com",
-                address: "101, Friends Colony Testing",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
+          const orderData = {
+            order_amount: 1.00,
+            order_currency: 'INR',
+            order_id: 'order_' + Math.random().toString(36).substr(2, 9), // Generate a random order ID
+            customer_details: {
+              customer_id: 'raktim_banerjee',
+              customer_phone: '9836739907',
+              customer_name: 'Raktim',
+              customer_email: 'test@cashfree.com',
             },
-            {
-                id: "673987c575df453424a54d79",
-                name: "Prajjwal Chaudhary",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "TEST",
-                city: "Noida",
-                country: "India",
-                address_type: "Home"
+            order_meta: {
+              return_url: 'https://www.cashfree.com/devstudio/preview/pg/web/popupCheckout?order_id={order_id}',
             },
-            {
-                id: "6739887775df453424a54d88",
-                name: "Prajjwal Test",
-                contact_number: "09730516411",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "TEST",
-                city: "Noida",
-                country: "India",
-                address_type: "Work"
-            },
-            {
-                id: "673b6485eab48181713f8387",
-                name: "Prajjwal",
-                contact_number: "7011029201",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "101, Test Colony",
-                city: "Delhi",
-                country: "India",
-                address_type: "Work"
-            },
-            {
-                id: "673b6740eab48181713f838b",
-                name: "Prajjwal Testing",
-                contact_number: "7011029201",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "111, Test Colony",
-                city: "Delhi",
-                country: "India",
-                address_type: "Work"
-            },
-            {
-                id: "673f386f1d68ae1af1dc03f0",
-                name: "Shriom Tyagi",
-                contact_number: "7889896521",
-                email: "",
-                address: "Road No U 14",
-                city: "Gurugram",
-                country: "India",
-                address_type: "Home"
-            },
-            {
-                id: "67403ebceb7b64526512e469",
-                name: "Tanish Gupta",
-                email: "tanigupt@adobe.com",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-            },
-            {
-                id: "67403edeeb7b64526512e46b",
-                name: "Tanish Gupta",
-                email: "tanish16106@iiitd.ac.in",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-            },
-            {
-                id: "6741b5f77bf02d3fc820ca64",
-                name: "Testing Address",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "Jamuna Vihar",
-                city: "Khatauli",
-                country: "India",
-                address_type: "Other"
-            },
-            {
-                id: "6741e3e6eb7b64526512e473",
-                name: "Tanish Gupta",
-                email: "tanigupt@adobe.com",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-            },
-            {
-                id: "6753f7bd03cddce3380d48df",
-                name: "Shank",
-                email: "shank189@gmail.com",
-                address: "01, Shop",
-                city: "Texas",
-                country: "America",
-                address_type: "Home"
-            }
-          ];
-
-          // Sample customer info
-          const customer = {
-            name: "Shriom",
-            email: "shriomtyagi1998@gmail.com",
-            phone: "7889896521"
           };
 
-          // Sample order data sent from client
-          const data = {
-            products: productData,
-            selectedAddressId: selectedAddressId
-          };
+          axios.post('https://apsgroup.in/shopfrombharat/create-order.php', orderData)
+          .then((response) => {
+            // Log the response data
 
-          // Step 1: Match the selected address
-          let selectedAddress = addressList.find(address => address.id === data.selectedAddressId);
-
-          // Step 2: Decode the products data from JSON string to array
-          let productsData = JSON.parse(data.products);
-
-          // Step 3: Format the products data for WhatsApp
-          let formattedProductsData = "";
-          productsData.forEach(product => {
-            formattedProductsData += `Product Title: ${product['Product Title']}\n`;
-            formattedProductsData += `Product Link: ${product['Product Link']}\n`;
-            formattedProductsData += `Product Size: ${product['Product Size']}\n`;
-            formattedProductsData += `Quantity: ${product['Quantity']}\n`;
-            formattedProductsData += `Colors Available: ${product['Colors Available']}\n`;
-            formattedProductsData += `Customer Comments: ${product['Customer Comments']}\n`;
-            formattedProductsData += `Weight Range: ${product['Weight Range']}\n`;
-            formattedProductsData += `Price (USD): ${product['Price (USD)']}\n\n`;
+            console.log('Response Data:', response.data);
+            doPayment(response.data.payment_session_id)
+            
+          })
+          .catch((error) => {
+            // Handle errors
+            console.error('Error occurred:', error);
           });
-
-          // Step 4: Compile the message content
-          let msg = `Customer Info:\n`;
-          msg += `Name: ${customer.name}\n`;
-          msg += `Email: ${customer.email}\n`;
-          msg += `Phone: ${customer.phone}\n\n`;
-
-          msg += `Shipping Information:\n`;
-          msg += `Name: ${selectedAddress.name}\n`;
-          msg += `Address: ${selectedAddress.address}\n`;
-          msg += `City: ${selectedAddress.city}\n`;
-          msg += `Country: ${selectedAddress.country}\n`;
-          msg += `Address Type: ${selectedAddress.address_type}\n`;
-          msg += `Contact Number: ${selectedAddress.contact_number}\n\n`;
-
-          msg += `Products Ordered:\n`;
-          msg += formattedProductsData;
-
-          // Step 5: Encode the message to be URL-safe
-          const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
-          const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
-
-          // Step 6: Open WhatsApp with the pre-filled message
-          window.open(whatsappUrl, "_blank");
-
-          setCurrentStep("payment");
         }
+
+
+    //       // Construct the message and WhatsApp URL
+    //       const orderNumber = response.data.order.order_number;
+    //       const message = `New order placed, Order number is ${orderNumber}`;
+    //       const phoneNumber = "919731733771"; // Replace with the desired phone number
+    //       const productData = localStorage.getItem('productData')
+
+    //       console.log(productData);
+
+    //       axios.post('https://researchindiatoday.com/email.php', { products: productData, selectedAddressId: selectedAddressId })
+    //         .then(response => { })
+    //         .catch(error => {
+    //           console.error("Error making order request:", error);
+    //         });
+
+    //       // // Encode the message to be URL-safe
+    //       // const whatsappUrl = `https://api.whatsapp.com/send/?phone=8050063435&type=phone_number&text=${encodeURIComponent(message)}`;
+
+    //       // Sample data (this would be similar to your PHP data structure)
+    //       const addressList = [
+    //         {
+    //           id: "67149f7887b725ee580ec089",
+    //           name: "Shriom Tyagi",
+    //           contact_number: "+91-987654327",
+    //           email: "amit@example.com",
+    //           address: "101, Friends Colony Testing",
+    //           city: "New Delhi",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "673987c575df453424a54d79",
+    //           name: "Prajjwal Chaudhary",
+    //           email: "prajjwalchaudhary29898@gmail.com",
+    //           address: "TEST",
+    //           city: "Noida",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "6739887775df453424a54d88",
+    //           name: "Prajjwal Test",
+    //           contact_number: "09730516411",
+    //           email: "prajjwalchaudhary29898@gmail.com",
+    //           address: "TEST",
+    //           city: "Noida",
+    //           country: "India",
+    //           address_type: "Work"
+    //         },
+    //         {
+    //           id: "673b6485eab48181713f8387",
+    //           name: "Prajjwal",
+    //           contact_number: "7011029201",
+    //           email: "prajjwalchaudhary29898@gmail.com",
+    //           address: "101, Test Colony",
+    //           city: "Delhi",
+    //           country: "India",
+    //           address_type: "Work"
+    //         },
+    //         {
+    //           id: "673b6740eab48181713f838b",
+    //           name: "Prajjwal Testing",
+    //           contact_number: "7011029201",
+    //           email: "prajjwalchaudhary29898@gmail.com",
+    //           address: "111, Test Colony",
+    //           city: "Delhi",
+    //           country: "India",
+    //           address_type: "Work"
+    //         },
+    //         {
+    //           id: "673f386f1d68ae1af1dc03f0",
+    //           name: "Shriom Tyagi",
+    //           contact_number: "7889896521",
+    //           email: "",
+    //           address: "Road No U 14",
+    //           city: "Gurugram",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "67403ebceb7b64526512e469",
+    //           name: "Tanish Gupta",
+    //           email: "tanigupt@adobe.com",
+    //           address: "14A Shivam Enclave",
+    //           city: "New Delhi",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "67403edeeb7b64526512e46b",
+    //           name: "Tanish Gupta",
+    //           email: "tanish16106@iiitd.ac.in",
+    //           address: "14A Shivam Enclave",
+    //           city: "New Delhi",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "6741b5f77bf02d3fc820ca64",
+    //           name: "Testing Address",
+    //           email: "prajjwalchaudhary29898@gmail.com",
+    //           address: "Jamuna Vihar",
+    //           city: "Khatauli",
+    //           country: "India",
+    //           address_type: "Other"
+    //         },
+    //         {
+    //           id: "6741e3e6eb7b64526512e473",
+    //           name: "Tanish Gupta",
+    //           email: "tanigupt@adobe.com",
+    //           address: "14A Shivam Enclave",
+    //           city: "New Delhi",
+    //           country: "India",
+    //           address_type: "Home"
+    //         },
+    //         {
+    //           id: "6753f7bd03cddce3380d48df",
+    //           name: "Shank",
+    //           email: "shank189@gmail.com",
+    //           address: "01, Shop",
+    //           city: "Texas",
+    //           country: "America",
+    //           address_type: "Home"
+    //         }
+    //       ];
+
+    //       // Sample customer info
+    //       const customer = {
+    //         name: "Shriom",
+    //         email: "shriomtyagi1998@gmail.com",
+    //         phone: "7889896521"
+    //       };
+
+    //       // Sample order data sent from client
+    //       const data = {
+    //         products: productData,
+    //         selectedAddressId: selectedAddressId
+    //       };
+
+    //       // Step 1: Match the selected address
+    //       let selectedAddress = addressList.find(address => address.id === data.selectedAddressId);
+
+    //       // Step 2: Decode the products data from JSON string to array
+    //       let productsData = JSON.parse(data.products);
+
+    //       // Step 3: Format the products data for WhatsApp
+    //       let formattedProductsData = "";
+    //       productsData.forEach(product => {
+    //         formattedProductsData += `Product Title: ${product['Product Title']}\n`;
+    //         formattedProductsData += `Product Link: ${product['Product Link']}\n`;
+    //         formattedProductsData += `Product Size: ${product['Product Size']}\n`;
+    //         formattedProductsData += `Quantity: ${product['Quantity']}\n`;
+    //         formattedProductsData += `Colors Available: ${product['Colors Available']}\n`;
+    //         formattedProductsData += `Customer Comments: ${product['Customer Comments']}\n`;
+    //         formattedProductsData += `Weight Range: ${product['Weight Range']}\n`;
+    //         formattedProductsData += `Price (USD): ${product['Price (USD)']}\n\n`;
+    //       });
+
+    //       // Step 4: Compile the message content
+    //       let msg = `Customer Info:\n`;
+    //       msg += `Name: ${customer.name}\n`;
+    //       msg += `Email: ${customer.email}\n`;
+    //       msg += `Phone: ${customer.phone}\n\n`;
+
+    //       msg += `Shipping Information:\n`;
+    //       msg += `Name: ${selectedAddress.name}\n`;
+    //       msg += `Address: ${selectedAddress.address}\n`;
+    //       msg += `City: ${selectedAddress.city}\n`;
+    //       msg += `Country: ${selectedAddress.country}\n`;
+    //       msg += `Address Type: ${selectedAddress.address_type}\n`;
+    //       msg += `Contact Number: ${selectedAddress.contact_number}\n\n`;
+
+    //       msg += `Products Ordered:\n`;
+    //       msg += formattedProductsData;
+
+    //       // Step 5: Encode the message to be URL-safe
+    //       const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
+    //       const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
+
+    //       // Step 6: Open WhatsApp with the pre-filled message
+    //       window.open(whatsappUrl, "_blank");
+
+    //       setCurrentStep("payment");
+    //     }
       } catch (error) {
         toast.error("Failed to create order");
         console.error(error);
@@ -331,6 +397,27 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
       toast.error("Please select an address");
     }
   };
+
+  const [cfLoaded, setCfLoaded] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+    script.async = true;
+
+    script.onload = () => {
+      console.log("Cashfree script loaded ✅");
+      setCfLoaded(true);
+    };
+
+    script.onerror = (err) => {
+      console.error("Failed to load Cashfree script ❌", err);
+    };
+
+    console.log('cashfree loading')
+
+    document.body.appendChild(script);
+  }, []);
 
   const convertWeightToNumber = (weightRange) => {
     const weightMap = {
@@ -345,7 +432,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
 
   return (
     <>
-      <div className={styles.modal_header} style={{display: "flex", justifyContent: "space-between"}}>
+      <div className={styles.modal_header} style={{ display: "flex", justifyContent: "space-between" }}>
         <div className={styles.header_left}>
           <Image
             src={LeftArrow}
@@ -356,9 +443,9 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
               setCurrentStep("order");
             }}
           />
-          <h2 style={{fontSize: 20, marginTop: 20}}>Select Your Address</h2>
+          <h2 style={{ fontSize: 20, marginTop: 20 }}>Select Your Address</h2>
         </div>
-        <button onClick={onClose} style={{height: 40, width: 40, borderRadius: "100%"}}>X</button>
+        <button onClick={onClose} style={{ height: 40, width: 40, borderRadius: "100%" }}>X</button>
       </div>
 
       {/* <div className={styles.add_address}>
@@ -379,8 +466,8 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
                     onChange={() => handleAddressSelect(address._id)}
                   />
                   <div className={styles.address_type}>
-                    <h5 style={{textAlign: 'left'}}>{address.address_type ? address.address_type.toUpperCase() : ''}</h5>
-                    <p style={{fontSize: 13}}>Courier Delivery</p>
+                    <h5 style={{ textAlign: 'left' }}>{address.address_type ? address.address_type.toUpperCase() : ''}</h5>
+                    <p style={{ fontSize: 13 }}>Courier Delivery</p>
                   </div>
                 </div>
 
@@ -400,7 +487,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
                     width={40} // Adjust width as needed
                     height={65} // Adjust height as needed
                   />
-                  <span style={{textAlign: 'left'}}>
+                  <span style={{ textAlign: 'left' }}>
                     <strong>{address.name} </strong>
                     {`${address.address}, ${address.city}, ${address.country}, ${address.zip_code}`}
                   </span>

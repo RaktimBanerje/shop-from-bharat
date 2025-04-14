@@ -1,7 +1,7 @@
 // src/app/api/proxy/route.js
 import axios from 'axios';
 
-const baseUrl = "https://cors-anywhere.herokuapp.com/http://3.107.179.121";  // Target API base URL
+const baseUrl = "https://shopfrombharat.apsgroup.in";  // Target API base URL
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
