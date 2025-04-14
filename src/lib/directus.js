@@ -1,6 +1,6 @@
 import { createDirectus, rest } from '@directus/sdk';
 
-const directus = createDirectus('http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055').with(rest());
+const directus = createDirectus('http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055').with(rest());
 
 async function authenticate() {
     try {

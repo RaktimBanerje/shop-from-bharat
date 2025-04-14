@@ -307,7 +307,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
             console.log(orderData)
           
             // Step 5: Post data to Directus API
-            axios.post('http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055/items/orders/', orderData)
+            axios.post('http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/items/orders/', orderData)
               .then(response => {
                 console.log('Order posted to Directus:', response.data);
               })

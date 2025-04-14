@@ -18,7 +18,7 @@ export default function page({ params }) {
           setToken(localToken);
   
           const res = await fetch(
-            `http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055/items/shopping_sites?filter[slug][_eq]=${params.slug}`);
+            `http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/items/shopping_sites?filter[slug][_eq]=${params.slug}`);
   
           const result = await res.json();
           const siteData = result.data?.[0];
@@ -53,7 +53,7 @@ export default function page({ params }) {
                     <div style={{ backgroundColor: "#f9f3ee", border: "none" }}>
                     <div className="row d-flex justify-content-center">
                         <img 
-                            src={`http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055/assets/${site.logo}`} 
+                            src={`http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/assets/${site.logo}`} 
                             style={{ width: 300 }} 
                             alt={site.name} 
                         />

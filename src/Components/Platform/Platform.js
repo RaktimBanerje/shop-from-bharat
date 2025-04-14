@@ -198,7 +198,7 @@ const Platform = () => {
                     <div className={styles.platform_item}>
                       <div className={styles.platform_img}>
                         <Image
-                          src={`http://ec2-3-26-0-90.ap-southeast-2.compute.amazonaws.com:8055/assets/${platform.logo}`}
+                          src={`http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/assets/${platform.logo}`}
                           alt={platform.name}
                           width={60} // or whatever dimensions suit your design
                           height={60}

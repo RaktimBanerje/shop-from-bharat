@@ -8,6 +8,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import WhatsAppSVG from "../../assets/whatsapp.svg";
 import Spinner from "../Spinner/Spinner";
+import axios from "axios";
 
 const categories = [
   { label: "Perfume", id: 1 },
@@ -106,12 +107,22 @@ const BulkOrder = ({ isVisible, onClose }) => {
       msg+= `Quantity: ${updatedFormData.quantity} \n`;
       msg+= `Country: ${updatedFormData.country} \n`;
 
-      const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
-      const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
+      // const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
+      // const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(msg)}`;
 
-      // Step 6: Open WhatsApp with the pre-filled message
+      // // Step 6: Open WhatsApp with the pre-filled message
       
-      window.open(whatsappUrl, "_blank");
+      // window.open(whatsappUrl, "_blank");
+
+
+      // Step 5: Post data to Directus API
+      axios.post('http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/items/bulk_orders/', {name: updatedFormData.name, phone: updatedFormData.contact_number, category: updatedFormData.category, country: updatedFormData.country, quantity: updatedFormData.quantity, category_description: updatedFormData.category_description})
+      .then(response => {
+        console.log('Order posted to Directus:', response.data);
+      })
+      .catch(error => {
+        console.error('Error posting order to Directus:', error);
+      });
 
       setOrderPlaced(true);
     
