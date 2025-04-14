@@ -116,7 +116,7 @@ const BulkOrder = ({ isVisible, onClose }) => {
 
 
       // Step 5: Post data to Directus API
-      axios.post('http://ec2-3-107-13-124.ap-southeast-2.compute.amazonaws.com:8055/items/bulk_orders/', {name: updatedFormData.name, phone: updatedFormData.contact_number, category: updatedFormData.category, country: updatedFormData.country, quantity: updatedFormData.quantity, category_description: updatedFormData.category_description})
+      axios.post('https://shopfrombharat-admin.apsgroup.in/items/bulk_orders/', {name: updatedFormData.name, phone: updatedFormData.contact_number, category: updatedFormData.category, country: updatedFormData.country, quantity: updatedFormData.quantity, category_description: updatedFormData.category_description})
       .then(response => {
         console.log('Order posted to Directus:', response.data);
       })
