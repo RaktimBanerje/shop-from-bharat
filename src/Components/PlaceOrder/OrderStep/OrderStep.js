@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 // OrderStep.jsx
 import React, { useEffect, useState } from "react";
@@ -49,8 +49,7 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     { label: '7 - 10 kg', value: '7-10 kg' },
   ];
 
-  const [orderProducts, setOrderProducts]  = useState([])
-
+  const [orderProducts, setOrderProducts] = useState([]);
   const [formData, setFormData] = useState({
     product_link: "",
     product_title: "",
@@ -62,8 +61,8 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     price: "",
   });
 
-  const [isLoading, setIsLoading] = useState(false); // Loading state for API request
-  const [products, setProducts] = useState([]); // Local state for products
+  const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState([]);
 
   // Fetch form data from localStorage on initial mount
   useEffect(() => {
@@ -77,14 +76,11 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     const { name, value } = e.target;
     const updatedFormData = { ...formData, [name]: value };
     setFormData(updatedFormData);
-
-    // Save updated form data to localStorage
     localStorage.setItem("formData", JSON.stringify(updatedFormData));
   };
 
   const createOrder = async (newOrder) => {
     try {
-      // Map the keys to more human-readable labels
       const humanReadableData = orderProducts.map(product => ({
         "Product Link": product.product_link,
         "Product Title": product.product_title,
@@ -96,66 +92,32 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
         "Price (USD)": product.price
       }));
 
-      console.log(humanReadableData)
       localStorage.setItem('productData', JSON.stringify(humanReadableData));
       setIsLoading(true);
       
       const token = localStorage.getItem('BHARAT_TOKEN'); 
-      
-      // Make the POST request with the token in the Authorization header
-      const response = await axios({
-        method: 'post',
-        url: "https://shopfrombharat.apsgroup.in/api/order/create",
-        headers: { 'Authorization': 'Bearer ' + token },
-        data: newOrder
+      const response = await axios.post("https://shopfrombharat.apsgroup.in/api/order/create", newOrder, {
+        headers: { 'Authorization': 'Bearer ' + token }
       });
-      
-      if (response) {
-        console.log({OrderID: response.data.order.order_number})
 
-        // axios.post('https://wajd.co.uk/email.php', {order_number: response.data.order.order_number})
-        //   .then(response => {})
-        //   .catch(error => {
-        //       console.error("Error making order request:", error);
-        // });
-
-        toast.success("Order created successfully", {
-          duration: 2000,
-          position: "top-center",
-        });
-        setIsLoading(false); // Reset loading
-        setProducts((prevProducts) => [...prevProducts, newOrder]); // Add new order to local products state
+      if (response.data) {
+        toast.success("Order created successfully", { duration: 2000, position: "top-center" });
+        setIsLoading(false);
+        setProducts((prevProducts) => [...prevProducts, newOrder]);
         handleOrderSubmit();
       }
     } catch (error) {
-      toast.error("An error occurred while creating the order", {
-        duration: 2000,
-        position: "top-center",
-      });
-      setIsLoading(false); // Reset loading
+      toast.error("An error occurred while creating the order", { duration: 2000, position: "top-center" });
+      setIsLoading(false);
     }
   };
 
   const onSubmit = () => {
-    const form = {
-      product_link: formData.product_link || "",
-      product_title: formData.product_title || "",
-      product_size: formData.product_size || "",
-      quantity: formData.quantity || "",
-      colors: formData.colors || "",
-      comments: formData.comments || "",
-      weight: formData.weight || "",
-      price: formData.price || "",
-      id: Date.now(), // Generate a temporary ID for the product
-    };
-
+    const form = { ...formData, id: Date.now() };
     if (form.product_link && form.product_title && form.weight && form.price) {
-      createOrder(form); // Create order via API
+      createOrder(form);
     } else {
-      toast.error("Please fill in all required fields", {
-        duration: 2000,
-        position: "top-center",
-      });
+      toast.error("Please fill in all required fields", { duration: 2000, position: "top-center" });
     }
   };
 
@@ -165,10 +127,7 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       return;
     }
 
-    console.log("Here")
-    console.log(formData)
     setOrderProducts((prevOrderProducts) => [...prevOrderProducts, formData]);
-
     setFormData({
       product_link: "",
       product_title: "",
@@ -179,20 +138,16 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       weight: "",
       price: "",
     });
-    localStorage.removeItem("formData"); // Clear form data from localStorage
+    localStorage.removeItem("formData");
   };
 
   const populateForm = (idx) => {
     const product = orderProducts.find((product) => idx === product.id);
-    if (product) {
-      setFormData(product); // Populate form with selected product details
-    }
+    if (product) setFormData(product);
   };
 
-  // Handle modal close
   const handleCloseModal = () => {
     onClose();
-    // Optionally, do not clear localStorage if you want to persist data
   };
 
   return (
@@ -244,24 +199,11 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
             id="weight-select"
             options={weightOptions}
             getOptionLabel={(option) => option.label}
-            sx={{
-              width: '50%',
-              ...dorpdownStyles,
-            }}
+            sx={{ width: '50%', ...dorpdownStyles }}
             value={weightOptions.find((option) => option.value === formData.weight) || null}
-            onChange={(event, value) => {
-              setFormData({
-                ...formData,
-                weight: value ? value.value : null,
-              });
-            }}
+            onChange={(event, value) => setFormData({ ...formData, weight: value ? value.value : null })}
             renderInput={(params) => (
-              <CssTextField
-                {...params}
-                label="Select Weight"
-                variant="outlined"
-                autoComplete="off"
-              />
+              <CssTextField {...params} label="Select Weight" variant="outlined" autoComplete="off" />
             )}
           />
           <CssTextField
@@ -291,7 +233,6 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
           />
         </div>
 
-        {/* Product size as a regular text input */}
         <CssTextField
           className={styles.input_field}
           sx={{ width: "100%" }}

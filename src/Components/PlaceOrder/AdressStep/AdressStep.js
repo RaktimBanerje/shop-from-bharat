@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,16 +9,17 @@ import LeftArrow from "../../../assets/leftarrow.svg";
 import PinSVG from "../../../assets/pin.svg";
 import WhatsAppSVG from "../../../assets/whatsapp.svg";
 import { CssTextField } from "../index";
-import Image from "next/image";  // Import Image from next/image
-import styles from './Addresses.module.css'
+import Image from "next/image"; // Import Image from next/image
+import styles from './Addresses.module.css';
 import { load } from '@cashfreepayments/cashfree-js';
 
-const baseUrl = "https://shopfrombharat.apsgroup.in";  // Your API base URL
+const baseUrl = "https://shopfrombharat.apsgroup.in"; // Your API base URL
+const fedExAPIUrl = "https://apis-sandbox.fedex.com/rate/v1/freight/rates/quotes"; // Replace with the FedEx rate API URL
 
 const AddressStep = ({ onClose, setCurrentStep }) => {
   const [addressForm, setAddressForm] = useState(false);
   const [selectedAddressId, setSelectedAddressId] = useState(null);
-  const [products, setProducts] = useState([]);  // Assuming this is how products are set
+  const [products, setProducts] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -31,6 +32,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
   });
   const [totalAmount, setTotalAmount] = useState(0);
   const [addressList, setAddressList] = useState([]);
+  const [shippingCost, setShippingCost] = useState(0); // Store the shipping cost
 
   // Handle form field changes
   const handleChange = (e) => {
@@ -120,277 +122,60 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
   };
 
   const onSubmit = async () => {
-
-    let cashfree;
-    var initializeSDK = async function () {          
-        cashfree = await load({
-            mode: "sandbox"
-        });
-    };
-    initializeSDK();
-
-    const doPayment = async (session_id, order_number) => {
-      let checkoutOptions = {
-          paymentSessionId: session_id,
-          redirectTarget: "_modal",
-      };
-      cashfree.checkout(checkoutOptions).then((result) => {
-          if(result.error){
-              // This will be true whenever user clicks on close icon inside the modal or any error happens during the payment
-              console.log("User has closed the popup or there is some payment error, Check for Payment Status");
-              console.log(result.error);
-          }
-          if(result.redirect){
-              // This will be true when the payment redirection page couldnt be opened in the same window
-              // This is an exceptional case only when the page is opened inside an inAppBrowser
-              // In this case the customer will be redirected to return url once payment is completed
-              console.log("Payment will be redirected");
-          }
-          if(result.paymentDetails){
-            // Construct the message and WhatsApp URL
-            // const orderNumber = order_number;
-            // const message = `New order placed, Order number is ${orderNumber}`;
-            // const phoneNumber = "919731733771"; // Replace with the desired phone number
-            const productData = localStorage.getItem('productData'); // Get product data from localStorage
-          
-            // Sample customer info (replace with real customer data if needed)
-            const customer = {
-              name: "Shriom",
-              email: "shriomtyagi1998@gmail.com",
-              phone: "7889896521"
-            };
-          
-            // Sample order data sent from client
-            const data = {
-              products: productData,
-              selectedAddressId: selectedAddressId
-            };
-          
-            // Sample address list
-            const addressList = [
-              {
-                id: "67149f7887b725ee580ec089",
-                name: "Shriom Tyagi",
-                contact_number: "+91-987654327",
-                email: "amit@example.com",
-                address: "101, Friends Colony Testing",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "673987c575df453424a54d79",
-                name: "Prajjwal Chaudhary",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "TEST",
-                city: "Noida",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "6739887775df453424a54d88",
-                name: "Prajjwal Test",
-                contact_number: "09730516411",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "TEST",
-                city: "Noida",
-                country: "India",
-                address_type: "Work"
-              },
-              {
-                id: "673b6485eab48181713f8387",
-                name: "Prajjwal",
-                contact_number: "7011029201",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "101, Test Colony",
-                city: "Delhi",
-                country: "India",
-                address_type: "Work"
-              },
-              {
-                id: "673b6740eab48181713f838b",
-                name: "Prajjwal Testing",
-                contact_number: "7011029201",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "111, Test Colony",
-                city: "Delhi",
-                country: "India",
-                address_type: "Work"
-              },
-              {
-                id: "673f386f1d68ae1af1dc03f0",
-                name: "Shriom Tyagi",
-                contact_number: "7889896521",
-                email: "",
-                address: "Road No U 14",
-                city: "Gurugram",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "67403ebceb7b64526512e469",
-                name: "Tanish Gupta",
-                email: "tanigupt@adobe.com",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "67403edeeb7b64526512e46b",
-                name: "Tanish Gupta",
-                email: "tanish16106@iiitd.ac.in",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "6741b5f77bf02d3fc820ca64",
-                name: "Testing Address",
-                email: "prajjwalchaudhary29898@gmail.com",
-                address: "Jamuna Vihar",
-                city: "Khatauli",
-                country: "India",
-                address_type: "Other"
-              },
-              {
-                id: "6741e3e6eb7b64526512e473",
-                name: "Tanish Gupta",
-                email: "tanigupt@adobe.com",
-                address: "14A Shivam Enclave",
-                city: "New Delhi",
-                country: "India",
-                address_type: "Home"
-              },
-              {
-                id: "6753f7bd03cddce3380d48df",
-                name: "Shank",
-                email: "shank189@gmail.com",
-                address: "01, Shop",
-                city: "Texas",
-                country: "America",
-                address_type: "Home"
-              }
-            ];
-          
-            // Step 1: Match the selected address
-            let selectedAddress = addressList.find(address => address.id === data.selectedAddressId);
-          
-            // Step 2: Decode the products data from JSON string to array
-            let productsData = JSON.parse(data.products);
-          
-            // Step 3: Construct order items from productsData
-            let orderItems = productsData.map(product => ({
-              price: parseFloat(product['Price (USD)']), // Adjust field names as per your data
-              weight: parseFloat(product['Weight Range'] || 0), // Add proper default or conversion for weight
-              quantity: parseInt(product['Quantity']),
-              product_link: product['Product Link'],
-              product_size: parseInt(product['Product Size']),
-              product_title: product['Product Title'],
-              additional_comment: product['Customer Comments'] || ''
-            }));
-          
-            // Step 4: Prepare data for posting to Directus
-            const orderData = {
-              customer_name: customer.name,
-              customer_email: customer.email,
-              customer_phone: customer.phone,
-              address_line: JSON.stringify(selectedAddress.address),
-              payment_amount: 100,
-              order_items: orderItems, // Directus expects an array of objects here
-              transaction_id: "5114917333613", // Assuming the transaction ID is available from payment details
-              date_created: new Date().toISOString(),
-              date_updated: null // Or you can set it dynamically if applicable
-            };
-
-            console.log(orderData)
-          
-            // Step 5: Post data to Directus API
-            axios.post('https://shopfrombharat-admin.apsgroup.in/items/orders/', orderData)
-              .then(response => {
-                console.log('Order posted to Directus:', response.data);
-              })
-              .catch(error => {
-                console.error('Error posting order to Directus:', error);
-              });
-          
-            // // Step 6: Send the product data to email.php (as in the original code)
-            // axios.post('https://researchindiatoday.com/email.php', { products: productData, selectedAddressId: selectedAddressId })
-            //   .then(response => { })
-            //   .catch(error => {
-            //     console.error("Error making order request:", error);
-            //   });
-          
-            // Step 7: WhatsApp message functionality
-            // const whatsappPhoneNumber = "8050063435"; // Replace with the recipient's phone number
-            // const whatsappUrl = `https://api.whatsapp.com/send/?phone=${whatsappPhoneNumber}&text=${encodeURIComponent(message)}`;
-            // window.open(whatsappUrl, "_blank");
-          
-            // Step 8: Continue the payment process (if required)
-            setCurrentStep("payment");
-          }
-      });
-  };
-
-
-    const token = localStorage.getItem("BHARAT_TOKEN");
-    if (selectedAddressId) {
-      const payload = {
-        address_id: selectedAddressId,
-        products: products.map((product) => ({
-          ...product,
-          weight: convertWeightToNumber(product.weight),
-        })),
-      };
-
-      try {
-        const response = await axios({
-          method: "post",
-          url: `${baseUrl}/api/order/create`,
-          headers: { Authorization: "Bearer " + token },
-          data: payload,
-        });
-
-        if (response.data.status) {
-          // alert(response.data.message)
-
-          let order_id = 'order_' + Math.random().toString(36).substr(2, 9) 
-
-          const orderData = {
-            order_amount: 1.00,
-            order_currency: 'INR',
-            order_id: order_id, // Generate a random order ID
-            customer_details: {
-              customer_id: 'raktim_banerjee',
-              customer_phone: '9836739907',
-              customer_name: 'Raktim',
-              customer_email: 'test@cashfree.com',
-            },
-            order_meta: {
-              return_url: 'https://www.cashfree.com/devstudio/preview/pg/web/popupCheckout?order_id={order_id}',
-            },
-          };
-
-          axios.post('https://apsgroup.in/shopfrombharat/create-order.php', orderData)
-          .then((response) => {
-            // Log the response data
-
-            console.log('Response Data:', response.data);
-            doPayment(response.data.payment_session_id, order_id)
-            
-          })
-          .catch((error) => {
-            // Handle errors
-            console.error('Error occurred:', error);
-          });
-        }
-      } catch (error) {
-        toast.error("Failed to create order");
-        console.error(error);
-      }
-    } else {
+    if (!selectedAddressId) {
       toast.error("Please select an address");
+      return;
+    }
+
+    let totalWeight = 0;
+
+    // Calculate total weight of the products
+    products.forEach((product) => {
+      totalWeight += convertWeightToNumber(product.weight) * product.quantity;
+    });
+
+    // Get selected address data
+    const selectedAddress = addressList.find(address => address._id === selectedAddressId);
+
+    // Call FedEx API to get the shipping rate based on the selected address and weight
+    try {
+      const shippingResponse = await axios.post(fedExAPIUrl, {
+        data: {
+          requestedShipment: {
+            shipper: {
+              address: {
+                streetLines: [selectedAddress.address],
+                city: selectedAddress.city,
+                stateOrProvinceCode: selectedAddress.state,
+                postalCode: selectedAddress.zip_code,
+                countryCode: selectedAddress.country,
+              },
+            },
+            recipient: {
+              address: {
+                streetLines: [selectedAddress.address],
+                city: selectedAddress.city,
+                stateOrProvinceCode: selectedAddress.state,
+                postalCode: selectedAddress.zip_code,
+                countryCode: selectedAddress.country,
+              },
+            },
+            packages: [
+              {
+                weight: {
+                  value: totalWeight, // Total weight of the products
+                  units: "KG",
+                },
+              },
+            ],
+          },
+        },
+      });
+      setShippingCost(shippingResponse.data.rate);
+      console.log("Shipping Cost:", shippingResponse.data.rate);
+    } catch (error) {
+      toast.error("Failed to fetch shipping cost");
+      console.error("Error fetching shipping cost", error);
     }
   };
 
@@ -409,8 +194,6 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
     script.onerror = (err) => {
       console.error("Failed to load Cashfree script ❌", err);
     };
-
-    console.log('cashfree loading')
 
     document.body.appendChild(script);
   }, []);
@@ -443,12 +226,6 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
         </div>
         <button onClick={onClose} style={{ height: 40, width: 40, borderRadius: "100%" }}>X</button>
       </div>
-
-      {/* <div className={styles.add_address}>
-        <button className={styles.add_address_btn} onClick={toggleAddressForm}>
-          {addressForm ? "Remove Address Form" : "Add New Address"}
-        </button>
-      </div> */}
 
       {!addressForm ? (
         <div className={styles.addresses_list} style={{ maxHeight: "300px", overflowY: "auto" }}>
@@ -493,113 +270,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
         </div>
       ) : (
         <div className={styles.modal_inputs}>
-          <CssTextField
-            className={styles.name_field}
-            label="What should we call you?"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-          <div className={styles.form_zip_city}>
-            <CssTextField
-              className={styles.input_field}
-              label="Email Address"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <PhoneInput
-              country={"in"}
-              label="Phone Number"
-              value={formData.phone}
-              onChange={(value) => setFormData({ ...formData, phone: value })}
-              className={styles.input_field}
-              inputProps={{
-                placeholder: "Your Phone",
-                name: "phone",
-                required: true,
-              }}
-              inputStyle={{
-                height: "100%",
-                width: "100%",
-                color: "black",
-              }}
-              placeholder="Your Phone"
-            />
-          </div>
-
-          <div className={styles.form_zip_city}>
-            <CssTextField
-              className={styles.input_field}
-              label="House/Flat/Floor No."
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              required
-            />
-            <CssTextField
-              className={styles.input_field}
-              label="Zip Code"
-              name="zip_code"
-              value={formData.zip_code}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.form_zip_city}>
-            <CssTextField
-              className={styles.input_field}
-              label="City"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              required
-            />
-            <CssTextField
-              className={styles.input_field}
-              label="Country"
-              name="country"
-              value={formData.country}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.checkboxContainer}>
-            <label className={styles.checkbox_label}>
-              <input
-                type="checkbox"
-                name="address_type"
-                value="home"
-                checked={formData.address_type === "home"}
-                onChange={handleAddressTypeChange}
-              />{" "}
-              Home
-            </label>
-            <label className={styles.checkbox_label}>
-              <input
-                type="checkbox"
-                name="address_type"
-                value="work"
-                checked={formData.address_type === "work"}
-                onChange={handleAddressTypeChange}
-              />{" "}
-              Work
-            </label>
-            <label className={styles.checkbox_label}>
-              <input
-                type="checkbox"
-                name="address_type"
-                value="other"
-                checked={formData.address_type === "other"}
-                onChange={handleAddressTypeChange}
-              />{" "}
-              Other
-            </label>
-          </div>
+          {/* Form for new address */}
         </div>
       )}
 
@@ -624,6 +295,7 @@ const AddressStep = ({ onClose, setCurrentStep }) => {
         >
           {addressForm ? "Add Address" : "Place Order"}
         </button>
+        {shippingCost > 0 && <p>Shipping Cost: ₹{shippingCost}</p>}
       </div>
     </>
   );

@@ -1,14 +1,14 @@
+"use client"
+
+// OrderStep.jsx
 import React, { useEffect, useState } from "react";
 import { Autocomplete } from "@mui/material";
 import WhatsAppSVG from "../../../assets/whatsapp.svg";
+import Image from "next/image"; // Importing Image from Next.js for optimization
 import styles from "../PlaceOrder.module.css";
 import { CssTextField } from "../index";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { addProducts, showLastProduct } from "../../../store/productSlice";
-import toast from "react-hot-toast";
-import apiServiceHandler from "../../../service/apiService";
+import axios from "axios"; // Axios for API calls
+import toast from "react-hot-toast"; // For displaying notifications
 
 const dorpdownStyles = {
   "& + .MuiAutocomplete-popper .MuiAutocomplete-option": {
@@ -29,13 +29,7 @@ const dorpdownStyles = {
 };
 
 const OrderStep = ({ onClose, handleOrderSubmit }) => {
-  const queryClient = useQueryClient();
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
-  const lastProduct = useSelector((state) => state.products.lastProduct);
-
   const sizes = [
-    { label: "" },
     { label: "XS" },
     { label: "S" },
     { label: "M" },
@@ -52,13 +46,15 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     { label: '3 - 4 kg', value: '3-4 kg' },
     { label: '4 - 5 kg', value: '4-5 kg' },
     { label: '5 - 7 kg', value: '5-7 kg' },
-    { label: '7 - 10 kg', value:'7-10 kg' },
+    { label: '7 - 10 kg', value: '7-10 kg' },
   ];
+
+  const [orderProducts, setOrderProducts]  = useState([])
 
   const [formData, setFormData] = useState({
     product_link: "",
     product_title: "",
-    product_size: sizes[0],
+    product_size: "",
     quantity: "",
     colors: "",
     comments: "",
@@ -66,15 +62,16 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
     price: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false); // Loading state for API request
+  const [products, setProducts] = useState([]); // Local state for products
+
   // Fetch form data from localStorage on initial mount
   useEffect(() => {
     const savedData = localStorage.getItem("formData");
     if (savedData) {
       setFormData(JSON.parse(savedData));
-    } else if (lastProduct) {
-      setFormData(lastProduct);
     }
-  }, [lastProduct]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -86,49 +83,78 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
   };
 
   const createOrder = async (newOrder) => {
-    const response = await apiServiceHandler("POST", "api/order/create", newOrder);
-    return response;
-  };
+    try {
+      // Map the keys to more human-readable labels
+      const humanReadableData = orderProducts.map(product => ({
+        "Product Link": product.product_link,
+        "Product Title": product.product_title,
+        "Product Size": product.product_size,
+        "Quantity": product.quantity,
+        "Colors Available": product.colors,
+        "Customer Comments": product.comments,
+        "Weight Range": product.weight,
+        "Price (USD)": product.price
+      }));
 
-  const { mutate, isLoading } = useMutation({
-    mutationFn: createOrder,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["order"] });
-      // Optionally, close modal on success
-      // onClose();
-    },
-  });
+      console.log(humanReadableData)
+      localStorage.setItem('productData', JSON.stringify(humanReadableData));
+      setIsLoading(true);
+      
+      const token = localStorage.getItem('BHARAT_TOKEN'); 
+      
+      // Make the POST request with the token in the Authorization header
+      const response = await axios({
+        method: 'post',
+        url: "https://shopfrombharat.apsgroup.in/api/order/create",
+        headers: { 'Authorization': 'Bearer ' + token },
+        data: newOrder
+      });
+      
+      if (response) {
+        console.log({OrderID: response.data.order.order_number})
+
+        // axios.post('https://wajd.co.uk/email.php', {order_number: response.data.order.order_number})
+        //   .then(response => {})
+        //   .catch(error => {
+        //       console.error("Error making order request:", error);
+        // });
+
+        toast.success("Order created successfully", {
+          duration: 2000,
+          position: "top-center",
+        });
+        setIsLoading(false); // Reset loading
+        setProducts((prevProducts) => [...prevProducts, newOrder]); // Add new order to local products state
+        handleOrderSubmit();
+      }
+    } catch (error) {
+      toast.error("An error occurred while creating the order", {
+        duration: 2000,
+        position: "top-center",
+      });
+      setIsLoading(false); // Reset loading
+    }
+  };
 
   const onSubmit = () => {
     const form = {
       product_link: formData.product_link || "",
       product_title: formData.product_title || "",
-      product_size: formData.product_size || sizes[0],
+      product_size: formData.product_size || "",
       quantity: formData.quantity || "",
       colors: formData.colors || "",
       comments: formData.comments || "",
       weight: formData.weight || "",
       price: formData.price || "",
-      id: formData.id || "",
+      id: Date.now(), // Generate a temporary ID for the product
     };
 
-    if (products.length > 0) {
-      if (form.product_link && form.product_title && form.weight && form.price) {
-        dispatch(addProducts(form));
-        dispatch(showLastProduct({}));
-        handleOrderSubmit();
-      } else {
-        handleOrderSubmit();
-      }
-    } else if (Object.keys(form).length > 0 && form.product_link && form.weight && form.price) {
-      dispatch(addProducts(form));
-      dispatch(showLastProduct({}));
-      handleOrderSubmit();
+    if (form.product_link && form.product_title && form.weight && form.price) {
+      createOrder(form); // Create order via API
     } else {
-      toast.error("Please add at least one product", {
+      toast.error("Please fill in all required fields", {
         duration: 2000,
         position: "top-center",
-        ariaProps: { role: "status", "aria-live": "polite" },
       });
     }
   };
@@ -139,30 +165,27 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       return;
     }
 
-    dispatch(addProducts(formData));
+    console.log("Here")
+    console.log(formData)
+    setOrderProducts((prevOrderProducts) => [...prevOrderProducts, formData]);
+
     setFormData({
       product_link: "",
       product_title: "",
-      product_size: sizes[0],
+      product_size: "",
       quantity: "",
       colors: "",
       comments: "",
       weight: "",
       price: "",
     });
-    // Optionally, clear the localStorage data when resetting the form
-    // localStorage.removeItem("formData");
+    localStorage.removeItem("formData"); // Clear form data from localStorage
   };
 
   const populateForm = (idx) => {
-    if (formData.product_link && formData.product_title && formData.weight && formData.price) {
-      dispatch(addProducts(formData));
-    }
-
-    const data = products.filter((product) => idx === product.id);
-
-    if (data.length > 0 && formData.id !== data[0].id) {
-      setFormData(data[0]);
+    const product = orderProducts.find((product) => idx === product.id);
+    if (product) {
+      setFormData(product); // Populate form with selected product details
     }
   };
 
@@ -179,9 +202,9 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
         <button onClick={handleCloseModal}>X</button>
       </div>
 
-      {products.length > 0 && (
+      {orderProducts.length > 0 && (
         <div className={styles.all_orders}>
-          {products.map((product) => (
+          {orderProducts.map((product) => (
             <div
               key={product.id}
               className={styles.order_item}
@@ -268,14 +291,14 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
           />
         </div>
 
+        {/* Product size as a regular text input */}
         <CssTextField
           className={styles.input_field}
           sx={{ width: "100%" }}
-          label="Select Size"
-          required
+          label="Product Size"
           name="product_size"
           value={formData.product_size || ""}
-          onChange={(event) => setFormData({ ...formData, product_size: event.target.value })}
+          onChange={handleChange}
           variant="outlined"
           autoComplete="off"
         />
@@ -292,14 +315,14 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
       </div>
 
       <div className={styles.modal_actions}>
-        <button className={styles.submitBtn} onClick={onSubmit}>
-          CONTINUE
+        <button className={styles.submitBtn} onClick={onSubmit} disabled={isLoading}>
+          {isLoading ? "Submitting..." : "CONTINUE"}
         </button>
         <button
           className={styles.directBtn}
           onClick={() => window.open("https://wa.me/9197317 33771", "_blank")}
         >
-          <img src={WhatsAppSVG} alt="WhatsApp" />
+          <Image src={WhatsAppSVG} alt="WhatsApp" width={30} height={30} />
           DIRECT CONTACT
         </button>
       </div>
@@ -308,6 +331,3 @@ const OrderStep = ({ onClose, handleOrderSubmit }) => {
 };
 
 export default OrderStep;
-
-
-
